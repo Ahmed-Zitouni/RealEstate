@@ -3,10 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "dom-parser": "^0.1.6",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-gesture-gallery": "^1.1.0",
+    "react-gesture-responder": "^2.1.0",
+    "react-google-maps": "^9.4.5",
     "react-icons": "^3.8.0",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "simplebar-react": "^2.0.10"
   },
   "scripts": {
     "start": "react-scripts start",

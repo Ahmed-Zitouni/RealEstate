@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { FaTwitch } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
+import {faExternalLinkSquareAlt} from 'react-icons/fa';
 
 class MNavbar extends Component {
     render() {

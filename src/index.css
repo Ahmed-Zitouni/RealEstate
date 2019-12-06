@@ -1,13 +1,671 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+  font-size: 100%;
+  font-family: 'Roboto', sans-serif;
+	font: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+  letter-spacing: 0.04em;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
 }
+html, body {
+  /*overflow: hidden;*/
+  height: 100%;
+  width: 100%;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  border: 1px solid green !important;
+  -webkit-text-fill-color: green;
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+body {
+  line-height: 1;
+  font-family: 'Roboto', sans-serif;
+}
+ol, ul , li{
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+#root {
+  height: 100%;
+  display: grid;
+  grid-gap: 0px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 75px 55px auto;
+  grid-template-areas: 
+    "h h"
+    "s s"
+    "m d";
+}
+.NavBar {
+  grid-area: h;
+  z-index: 2;
+  background: #ffffff;
+  width: 100%;
+  height: 100%;
+}
+.NavBar > div {
+  text-align: left;
+  height: 100%;
+  margin: 0% 4%;
+  display: flex;
+  align-items: center;
+}
+.NavBar > div > div{
+  text-align: right;
+  flex: 1 1;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  height: 100%;
+}
+.NavBar > div > li {
+  display: inline-block;
+  text-align: center;
+  margin-left: 2%;
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+.NavBar >div > li:nth-child(1) a {
+  padding-left: 0;
+  height: auto;
+  width: 100%;
+  padding-right: 14px;
+  margin-bottom: 10px;
+}
+.NavBar div li a {
+  font-size: 1rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 14px;
+  padding-right: 14px;
+  cursor: pointer;
+  font-weight: 300;
+  text-decoration: none;
+  color: #2F3D44;
+}
+.NavBar_Div {
+  text-align:left;
+  flex:1
+}
+
+.NavBar_Mid_Div {
+  text-align: center;
+   flex: 1;
+   width: 20vw;
+   height: 5vw;
+}
+
+.NavBar_Mid_Div li a{
+  display: 'block';
+  color: 'rgb(18, 180, 124)';
+  text-align: 'center';
+  text-decoration: 'none';
+  font-size: '3.2vw';
+  width: '20vw';
+  font-weight: 'bold';
+}
+.NavBar_Right_Div {
+  text-align: right;
+  flex: 1
+}
+input {
+  box-shadow : none;  
+  -webkit-appearance: none;
+  text-rendering: auto;
+  color: initial;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  -webkit-appearance: textfield;
+  background-color: white;
+  -webkit-rtl-ordering: logical;
+  cursor: text;
+  margin: 0em;
+  font: 400 13.3333px Arial;
+  padding: 1px 0px;
+  border-width: 2px;
+  border-style: none;
+  border-color: none;
+  border-image: none;
+}
+.SearchBars {
+  grid-area: s;
+  z-index: 2;
+  border-bottom: 1px solid #d5d9dd;
+  background: #efefef;
+  width: 100%;
+  height: 100%;
+  min-height: auto;
+  display: flex;
+  align-items: center;
+}
+.SearchBars > div {
+  display: flex;
+  align-items: center;
+  min-height: auto;
+  margin: 0% 4%;
+  width: 100%;
+  height: 100%;
+}
+.SearchBars form {
+  min-height: auto;
+  margin: 0;
+  border: none;
+  flex-direction: row;
+  display: flex;
+  width: 100%;
+  height: 65%;
+  color: #2F3D44
+}
+.SearchBars form li, .SearchBars > form >input {
+  color: #444;
+  display: inline-block;
+  width: 100%;
+  padding: 0px 16px;
+  background: #fff;
+  border: 1px solid #d5d9dd;
+  border-radius: 3px;
+  align-items: center;
+  display: flex;
+  height: 100%;
+}
+.SearchBars form li:nth-child(1) {
+  width: 20%;
+}
+.SearchBars form li:nth-child(2) {
+  width: 11%;
+  margin-left: 2%;
+}
+.SearchBars form li:nth-child(3) {
+  width: 6%;
+  margin-left: 2%;
+}
+.SearchBars form > input {
+  width: 8%;
+  text-align: center;
+  margin-left: 2%;
+  background-color: #00B074;
+  color: white;
+}
+.SearchBars > form > input {
+  background-color: #00B074; /* Green */
+  border: none;
+  color: white;
+  margin-left: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+.DashBoard {
+  flex-direction: column;
+  overflow-y: hidden;
+  display: flex;
+  grid-area: d;
+  box-shadow: -2px 2px 5px 0 rgba(0,0,0,.4);
+  z-index: 1;
+  position: relative;
+}
+.DashBoard h1 {
+  font-size: 1.7rem;
+  padding-top: 2%;
+  padding-bottom: 3%;
+  padding-left: 2%;
+  font-weight: 600;
+  color: #2F3D44;
+}
+.DashBoard > div{
+  padding: 8px;
+  overflow-y: scroll;
+  margin: 0px 20px;
+  overflow-x: hidden;
+  height: 100%;
+  display: grid;
+  grid-gap: 18px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 265px;
+}
+.DashBoard span {
+  color: grey;
+  font-weight: 500;
+}
+.DashBoardItems {
+  display: flex;
+  cursor: pointer;
+  align-items: baseline;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  box-shadow: 0px 1px 4px 0px rgba(0,0,0,.4);
+  border-radius: 5% 5% 0px 0px;
+  margin-bottom: 10%;
+}
+@media only screen and (max-width: 1000px) {
+  .DashBoardItems {
+    padding-right: 3%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 60%;
+    width: 45%;
+  }
+}
+.DashBoardIcons {
+  display: flex;
+  align-self: flex-start;
+  flex-direction: row;
+  margin-left: 4%;
+  padding-top: 4%;
+}
+.DashBoardIcons li {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  color: #a3adad;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.DashBoardIcons li sup{
+  font-size: 0.6rem;
+}
+.DashBoardImg {
+  width: 100%;
+  height: 50%;
+  border-radius: 5% 5% 0px 0px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.DashBoardImg:hover img {
+  transform: scale(1.15);
+}
+.DashBoardItems img {
+  width: 100%;
+  height: 100%;
+  align-self: center;
+  object-fit: cover;
+  transition: transform 1.0s ease;
+}
+
+
+.DashBoardItems li{
+  text-decoration: none;
+  list-style-type: none;
+  list-style: none;
+}
+.DashBoardMainData {
+  padding-top: 5%;
+  padding-bottom: 6%;
+  margin-left: 4%;
+}
+.DashBoardMainData li{
+  padding: 2px 0px;
+}
+.DashBoardMainData :nth-child(1){
+  font-weight: bold;
+  color: #2F3D44;
+  font-size: .9rem;
+}
+@media only screen and (max-width: 900px) {
+
+.DashBoardMainData :nth-child(1){
+  font-weight: bold;
+  font-size: .7rem;
+}
+}
+@media only screen and (max-width: 650px) {
+
+  .DashBoardMainData :nth-child(1){
+    font-weight: bold;
+    font-size: .9rem;
+  }
+}
+.DashBoardMainData :nth-child(2){
+  color: #9da6a6;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+.DashBoardMainData :nth-child(3){
+  color: #00B074;
+  padding-top: 13%;
+  font-weight: 800;
+  font-size: 1rem;
+}
+.HouseInfoMain {
+  box-shadow: -2px 2px 5px 0 rgba(0,0,0,.4);
+  z-index: 1;
+  position: relative;
+  flex: 1;
+  overflow-y:scroll;
+  overflow-x: hidden;
+}
+.HouseInfo-close {
+  position: absolute;
+  top: 50%;
+  color: #546479;
+  right: -3.4%;  z-index: 100;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  background: white;
+  box-shadow: -2px 2px 5px 0 rgba(0,0,0,.4);
+  border: solid rgba(0,0,0,.4) 1px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.HouseInfo-Wrap {
+  flex-direction: column;
+  overflow-y: hidden;
+  display: flex;
+  grid-area: d;
+  box-shadow: -2px 2px 5px 0 rgba(0,0,0,.4);
+  z-index: 1;
+  position: relative;
+}
+.HouseInfo {
+  padding: 8px;
+  overflow-y: scroll;
+  margin: 0px 20px;
+  overflow-x: hidden;
+  height: 100%;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 120px 120px 40px 40px 20px 50px 50px 120px;
+  grid-template-areas: 
+    "s1 s1 s1 b b b b b b b b b"
+    "s2 s2 s2 b b b b b b b b b "
+    "mt mt mt mt mt mt mt mt pt pt pt pt"
+    "st st st st . . . . . . . ."
+    "ln ln ln ln ln ln ln ln ln ln ln ln"
+    "d1 d1 d1 d1 d2 d2 d2 d2 d3 d3 d3 d3"
+    "d4 d4 d4 d4 d5 d5 d5 d5 d6 d6 d6 d6"
+    "dt dt dt ds ds ds ds ds ds ds ds ds"
+}
+.HouseInfo-small {
+  grid-area: s1;
+  border-radius: 6%;
+  box-shadow: -2px 2px 5px 0 rgba(0,0,0,.4);
+}
+.HouseInfo-small-o {
+  grid-area: s2;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 6%;
+  box-shadow: -2px 2px 5px 0 rgba(0,0,0,.4);
+}
+.HouseInfo-small-o > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: rgba(63, 77, 83, .8);
+  object-fit: none;
+  border-radius: 6%;
+  display: flex;
+  justify-content: center;
+  align-items: center;;
+}
+.HouseInfo-small-o > div > div {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.HouseInfo-small-o > div > span {
+  font-size: 1.1vw;
+  text-align: center;
+  padding-left: 2%;
+  color: rgba(255, 255, 255, .9);
+}
+.Gallery__NavigationArrow button {
+  background-color: rgba(255, 255, 255, 0.0) !important;
+  color: white !important;
+  filter: drop-shadow(rgb(59, 65, 68) 1px 2px 2px) !important;
+}
+.GestureGallery {
+  grid-area: b;
+  box-shadow: -2px 2px 5px 0 rgba(0,0,0,.4);
+  border-radius: 1rem;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #2F3D44;
+  border-radius: 2%;
+}
+.HouseInfo > li:nth-child(4) {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2F3D44;
+  align-self: flex-end;
+}
+.HouseInfo > li:nth-child(4) span {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #7e8989;
+}
+.HouseInfo > li:nth-child(5) {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #00B074;
+  align-self: flex-end;
+}
+.HouseInfo > li:nth-child(6) {
+  font-size: 1.1rem;
+  color: #7e8989;
+  align-self: flex-start;
+}
+.HouseInfo > ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.HouseInfo > ul li:nth-child(1) {
+  font-size: 0.85em;
+  color: #7e8989;
+}
+.HouseInfo > ul li:nth-child(2) {
+  font-size: 1.1em;
+  font-weight: 700;
+  color: #2F3D44;
+  align-items: center;
+  padding-top: 8px;
+  display: flex;
+}
+
+.Gallery__NavigationArrow button:hover {
+  color: white;
+}
+.Gallery__Indicators {
+  transition: all .2s ease-in-out !important;
+}
+.HouseInfo > div > img {
+  height: 100%;
+  width: 100%;
+  border-radius: 6%;
+  object-fit: cover;
+}
+.HouseInfo-bottom{
+  display: flex;
+  flex-direction: column;
+  padding-top: 2vw;
+  padding-bottom: 4vw;
+}
+.HouseInfo-bottom-main ul{
+  display: flex;
+  flex-direction: row;
+}
+.HouseInfo-bottom-main > ul li{
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2F3D44;
+}
+.HouseInfo-bottom-main li{
+  font-size: 1.1rem;
+  color: #7e8989;
+  padding-top: 0.4vw;
+}
+.HouseInfo-bottom-main > ul li span{
+  color: #7e8989;
+}
+.HouseInfo-bottom-main > ul li:last-child{
+  padding-left: 30%;
+  color: #00B074;
+}
+.HouseInfo-bottom-secondary {
+  padding-top: 2.5rem;
+}
+.HouseInfo-bottom-secondary div{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-top: 3%;
+}
+.HouseInfo-bottom-secondary ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 20%;
+}
+.HouseInfo-bottom-secondary ul:nth-child(2) {
+  padding-left: 10%;
+  align-items: center;
+}
+.HouseInfo-bottom-secondary ul:nth-child(3) {
+  padding-left: 10%;
+  align-items: center;
+}
+.HouseInfo-bottom-secondary ul li:nth-child(1){
+  font-size: 0.85em;
+  color: #7e8989;
+}
+.HouseInfo-bottom-secondary ul li:nth-child(2){
+  font-size: 1.1em;
+  font-weight: 700;
+  color: #2F3D44;
+  align-items: center;
+  padding-top: 8px;
+  display: flex;
+}
+.HouseInfo-bottom-secondary-desc{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.HouseInfo-bottom-secondary-desc li:nth-child(1){
+  font-size: 1.1em;
+  font-weight: 700;
+  color: #2F3D44;
+  display: flex;
+}
+.HouseInfo-bottom-secondary-desc li:nth-child(2){
+  font-size: 0.85em;
+  color: #7e8989;
+  width: 100%;
+  padding-top: 0;
+  padding-left: 15px;
+  line-height: 1.6;
+}
+.GMap {
+  grid-area: m;
+  height: auto;
+  position: relative;
+}
+@media only screen and (max-width: 650px) {
+  .GMap {
+    height: auto;
+    display:none
+  }
+}
+.MapInfo {
+  width: 13vw;
+  height: 5vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  color: #7e8989;
+  cursor: pointer;
+}
+.MapInfo img {
+  width: 45%;
+  height: 100%;
+  object-fit: cover;
+}
+.MapInfo > div {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  padding-left: 5%;
+}
+.MapInfo > div h1:nth-child(1){
+  padding-top: 5%;
+  font-size: 0.55rem;
+  font-weight: 500;
+  color: #7e8989;
+}
+.MapInfo > div h1:nth-child(2) {
+  padding-top: 4%;
+  font-size: 0.8rem;
+  color: #00B074;
+  font-weight: 700;
+}
+.MapInfo div ul{
+  padding-top: 0.5vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  color: #7e8989;
+}
+.MapInfo div ul li {
+  font-size : 0.8rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  padding: 2%;
+}
+.MapInfo div ul:nth-child(2) {
+  padding-left: 0.4rem;
+}
+.gm-style-iw > button {display: none !important;}
