@@ -63,15 +63,15 @@ function HouseInfo(props) {
                 <li>Area</li>
                 <li>1,042 ft</li>
             </ul>
-            <li style={{gridArea: 'dt'}}>Description: </li>
-            <li style={{gridArea: 'ds'}}>{Home.desc}</li>
+            <li style={DescMain}>Description: </li>
+            <li style={DescText}>{Home.desc}</li>
             </div>
         </div>
     )
 }
 const Icons = {
     style: { verticalAlign: 'middle' },
-    color: 'rgb(205, 210, 210)',
+    color: '#DEE1E1',
     width: '20px',
     height: '20px',
     paddingLeft: '5%',
@@ -81,6 +81,25 @@ const Image = {
     height: '1.5rem',
     width: '1.5rem',
     color: 'white',
+}
+const DescMain = {
+  gridArea: 'dt',
+  fontSize: '1.1rem',
+  fontWeight: 700,
+  color: '#2F3D44',
+  alignItems: 'flex-start',
+  paddingTop: '8px',
+  display: 'flex'
+}
+const DescText = {
+    gridArea: 'ds',
+    fontSize: '0.85rem',
+    color: '#7e8989',
+    fontWeight: 400,
+    color: '#2F3D44',
+    alignItems: 'flex-start',
+    paddingTop: '14px',
+    display: 'flex'
 }
 /*              
 <div className="HouseInfo-big-img">

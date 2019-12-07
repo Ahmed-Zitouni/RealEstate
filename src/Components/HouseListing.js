@@ -39,7 +39,7 @@ const Icons = {
     padding: '0 0.2em 0 0.2em',
 }
 const underline = {
-    borderBottom: '2px solid rgb(205, 206, 206)',
+    borderBottom: '2px solid #DEE1E1',
     width: '87%',
     marginLeft: '4%',
 }
