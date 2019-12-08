@@ -9,21 +9,18 @@ import { HouseContext } from '../context/HouseContext';
 const HouseListing = ({ x, elem }) => {
     const {houses,dispatch} = useContext(HouseContext)
     let house = houses.Homes[elem];
-    console.log(house.images[0])
     const MoreInfo = () => {
         dispatch({type:'HOUSE_INFO', DashBoard: false, Item: elem})
     }
-    let random = Math.floor(Math.random() * Math.floor(house.images.length));
-    elem == 0 ? random = 0 : random = random;
     return ( 
         <div onClick = {() => MoreInfo()} className = "DashBoardItems">
                 <div className = "DashBoardImg">
-                    <img src = {house.images[random]} name={elem}/>
+                    <img src = {house.images[0]} name={elem}/>
                 </div>
                 <div className = "DashBoardMainData">
                     <li> {house.street}</li>
                     <li>{house.city}, {house.state}</li>
-                    <li>${house.rent}</li>
+                    <li>${house.amount ? house.amount : house.rent}</li>
                 </div>
             <div style = {underline}/>
             <div className = "DashBoardIcons">

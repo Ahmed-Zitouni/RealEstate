@@ -20,7 +20,7 @@ function HouseInfo(props) {
                 <img src={Home.images[0]} alt={Home.state}/>
             </div>
             <div className="HouseInfo-small-o">
-                <img src={Home.images[0]} alt={Home.city}/>
+                <img src={Home.images[1]} alt={Home.city}/>
                 <div>
                     <div><FaImage style={Image}/></div>
                     <span>{Home.images.length}</span>
@@ -37,7 +37,7 @@ function HouseInfo(props) {
             ))}
             </Gallery>
             <li style={{gridArea: 'mt'}}>{Home.street}, <span>{Home.state}</span></li>
-            <li style={{gridArea: 'pt'}}>${Home.rent}</li>
+            <li style={{gridArea: 'pt'}}>${Home.amount !== "" ? Home.amount : Home.rent}</li>
             <li style={{gridArea: 'st'}}>{Home.city}</li>
             <ul style={{gridArea: 'd1'}}>
                 <li>Bedrooms</li>
@@ -56,12 +56,12 @@ function HouseInfo(props) {
                 <li>{Home.yearBuilt}</li>
             </ul>
             <ul style={{gridArea: 'd5'}}>
-                <li>Parking</li>
-                <li>{Home.parkingType}</li>
+                <li>Type</li>
+                <li>{Home.useCode}</li>
             </ul>
             <ul style={{gridArea: 'd6'}}>
-                <li>Area</li>
-                <li>1,042 ft</li>
+                <li>Parking</li>
+                <li>{Home.parkingType}</li>
             </ul>
             <li style={DescMain}>Description: </li>
             <li style={DescText}>{Home.desc}</li>
@@ -71,7 +71,7 @@ function HouseInfo(props) {
 }
 const Icons = {
     style: { verticalAlign: 'middle' },
-    color: '#DEE1E1',
+    color: '#a3abab',
     width: '20px',
     height: '20px',
     paddingLeft: '5%',

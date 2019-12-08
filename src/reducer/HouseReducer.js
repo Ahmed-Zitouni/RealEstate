@@ -8,7 +8,9 @@ export const HouseReducer = (state, action) => {
                     addr: action.addr,
                     city: action.city,
                     sta: action.sta,
+                    passed: action.passed
                 },
+                
                 Homes: action.info
             })
         case 'HOUSE_INFO':

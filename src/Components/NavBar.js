@@ -17,11 +17,17 @@ const NavBar = (props) => {
                                 <span>Find A Home</span>
                            </Link> 
                         </li>
-                        <li><a href="#news"><span>Sell</span></a></li>
-                        <li><a className="active" href="#about"><span>Manage Rentals</span></a></li>
-                        <li><a href="#hoae"><span>Home Loans</span></a></li>
+                        <li>
+                            <Link to="/Sell-A-Property">
+                                <span>Sell A Property</span>
+                           </Link> 
+                        </li>
+                        <li>
+                            <Link to="/Manage-Rentals">
+                                <span>Manage Rentals</span>
+                           </Link> 
+                        </li>
                         <div className="NavBar_Right_Div">
-                            <li><a href="#houe"><span>Help</span></a></li>
                             <li><a href="#hoae"><span>Login</span></a></li>
                         </div>
                     </div>

@@ -1,23 +1,34 @@
 import React from 'react'
 
- const Heading = () => {
-    const Hero = "https://cdn-img-feed.streeteasy.com/nyc/image/85/330177985.jpg"
+ const Heading = (props) => {
 
+    console.log('Real', props)
+    const Header = props.data.data.Header;
+    const Images = props.data.data.Images;
+    const Background = {
+        content: "",
+        position: 'absolute',
+        left: '0',
+        top: '0',
+        width: '100%',
+        height: '100%',
+        background: Header[2],
+        zIndex: '1',
+    }
     return (
-        <div className ="FindHome-Hero" style={{backgroundImage: `url(${Hero})`}}>
+        <div className ="FindHome-Hero" style={{backgroundImage: `url(${Images[0]})`}}>
             <div className= "FindHome-Hero-Wrapper">
                 <div className = "FindHome-Hero-Text">
                     <div>
-                        <h1>First-Time Homebuyer Dos and Dont's</h1>
+                        <h1>{Header[0]}</h1>
                     </div>
                     <div>
-                        <p>Buying a home can be a daunting process therefore when it’s your first time buying 
-                            a home it is important to know how to budget and what help you can receive.
-                        </p>
+                        <p>{Header[1]}</p>
                         <div><p>Seach For Homes</p></div>
                     </div>
                 </div>
             </div>
+            <div style={Background}></div>
         </div>
     )
 }

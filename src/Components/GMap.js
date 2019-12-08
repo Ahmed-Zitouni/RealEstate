@@ -58,8 +58,8 @@ function Map() {
                 <h1>{selectedHouse.street}</h1>
                 <h1>${selectedHouse.rent}</h1>
                 <ul>
-                    <li><FaBed style ={Icons}/> {selectedHouse.bedrooms}</li>
-                    <li><FaToilet style ={Icons}/> {selectedHouse.bathrooms}</li>
+                    <li><FaBed style ={Iconsbed}/> {selectedHouse.bedrooms}</li>
+                    <li><FaToilet style ={Iconsto}/> {selectedHouse.bathrooms}</li>
                 </ul>
             </div>
         </div>
@@ -89,8 +89,23 @@ export default function GMap () {
     );
 }
 const Icons = {
+  style: { verticalAlign: 'middle' },
+  padding: '0 0.2em 0 0.2em',
+  width: '1.3rem',
+  height: '1.3rem',
+  color: '#a3abab'
+}
+const Iconsbed = {
     style: { verticalAlign: 'middle' },
     padding: '0 0.2em 0 0.2em',
     width: '1.3rem',
-    height: '1.3rem'
+    height: '0.9rem',
+    color: '#a3abab',
+}
+const Iconsto = {
+  style: { verticalAlign: 'middle' },
+  padding: '0 0.2em 0 0.2em',
+  width: '1.1rem',
+  height: '1.1rem',
+  color: '#a3abab',
 }

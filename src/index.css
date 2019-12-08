@@ -171,6 +171,12 @@ input {
   border-color: none;
   border-image: none;
 }
+input[type="text"]:focus, input[type="submit"]:focus {
+  outline: none;
+  }
+input[type="text"] {
+  font-size: 94%;
+}
 .SearchBars {
   grid-area: s;
   z-index: 2;
@@ -268,7 +274,7 @@ input {
   grid-auto-rows: 265px;
 }
 .DashBoard span {
-  color: grey;
+  color: #a3abab;
   font-weight: 500;
 }
 .DashBoardItems {
@@ -303,7 +309,7 @@ input {
   display: flex;
   flex-direction: row;
   padding: 5px;
-  color: #a3adad;
+  color: #a3abab;
   font-size: 0.85rem;
   font-weight: 500;
 }
@@ -414,8 +420,9 @@ input {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 120px 120px 40px 40px 20px 50px 50px 120px;
+  grid-template-rows: 30px 120px 120px 40px 40px 20px 50px 50px 120px;
   grid-template-areas: 
+    "n n n n n n n n n n n n"
     "s1 s1 s1 b b b b b b b b b"
     "s2 s2 s2 b b b b b b b b b "
     "mt mt mt mt mt mt mt mt pt pt pt pt"
@@ -474,7 +481,7 @@ input {
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: #2F3D44;
+  background-color: #1c2225;
   border-radius: 2%;
 }
 .HouseInfo > li:nth-child(4) {
@@ -516,12 +523,29 @@ input {
   padding-top: 8px;
   display: flex;
 }
-
+.Gallery__NavigationArrow > button {
+  width: 60px !important;
+  height: 60px !important;
+}
+.Gallery__NavigationArrow > button > svg{
+    margin-right: 0px !important;
+    margin-top: 0px !important;
+    width: 60px;
+    height: 60px;
+}
 .Gallery__NavigationArrow button:hover {
   color: white;
 }
 .Gallery__Indicators {
   transition: all .2s ease-in-out !important;
+}
+.GalleryImage > img {
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: 3%;
 }
 .HouseInfo > div > img {
   height: 100%;
@@ -622,8 +646,8 @@ input {
   }
 }
 .MapInfo {
-  width: 13vw;
-  height: 5vw;
+  width: 200px;
+  height: 70px;
   overflow: hidden;
   display: flex;
   flex-direction: row;
@@ -643,7 +667,7 @@ input {
 }
 .MapInfo > div h1:nth-child(1){
   padding-top: 5%;
-  font-size: 0.55rem;
+  font-size: 0.65rem;
   font-weight: 500;
   color: #7e8989;
 }
@@ -684,6 +708,7 @@ input {
   position: relative;
 }
 .FindHome-Hero {
+  min-height: 600px;
   background-position: center center;
   width: 100%; 
   height: 100vh;
@@ -696,15 +721,6 @@ input {
 .FindHome-Hero *{
   z-index: 2;
   position: relative;
-}
-.FindHome-Hero:after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 14, 64, 0.6);
 }
 .FindHome-Hero-Text {
   display: flex;
@@ -759,6 +775,7 @@ input {
   border-radius: 24px;
 }
 .MainText-Wrapper {
+  min-height: 600px;
   color: #231957;
   margin-top: 5%;
   width: 75%; 
@@ -824,6 +841,7 @@ input {
   object-fit: cover;
 }
 .ActionSteps-Wrapper {
+  min-height: 550px;
   color: #231957;
   margin-top: 15%;
   width: 75%; 
@@ -863,6 +881,7 @@ input {
   align-items: center;
   font-size: 0.9rem;
   color: white;
+  font-weight: 900;
 }
 .ActionSteps-Wrapper > div > div:nth-of-type(2){
   margin-top: 5%;
@@ -892,6 +911,7 @@ input {
   margin-left: 5%;
 }
 .Benefits-Wrapper {
+  min-height: 530px;
   color: #231957;
   width: 75%; 
   height: 85vh;

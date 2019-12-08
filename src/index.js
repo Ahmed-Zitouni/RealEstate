@@ -5,22 +5,37 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {HouseContextProvider} from './context/HouseContext';
 import { BrowserRouter, Route, Switch} from 'react-router-dom'
-import FindHome from './Components/FindHome/FindHome';
+import LandingPage from './Components/FindHome/LandingPage';
+import {FindHome, SellProperty, ManageRentals, HomeLoans} from './utilities/LandingData'
 
 
 ReactDOM.render(
     <BrowserRouter>
         <HouseContextProvider>
             <Switch>
+
                 <Route path="/" exact>
                     <App />
-                </Route>   
+                </Route>  
+
                 <Route path="/Find-A-Home" exact>   
-                <FindHome/>
+                    <LandingPage data={FindHome}/>
                 </Route>
+
+                <Route path="/Sell-A-Property" exact>   
+                    <LandingPage data={SellProperty}/>
+                </Route>
+                <Route path="/Manage-Rentals" exact>   
+                    <LandingPage data={ManageRentals}/>
+                </Route>
+                <Route path="/Home-Loans" exact>   
+                    <LandingPage data={HomeLoans}/>
+                </Route>
+
                 <Route path="/">
                     <App />
                 </Route>   
+
             </Switch>
         </HouseContextProvider>
     </BrowserRouter>

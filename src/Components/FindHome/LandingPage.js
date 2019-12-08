@@ -5,16 +5,17 @@ import MainText from './MainText'
 import ActionSteps from './ActionStepa'
 import Benefits from './Benefits'
 
-const FindHome = () => {
+const LandingPage = (data) => {
+    console.log(data);
     return (
         <div className ="FindHomeWrapper">
             <NavBar />
-            <Heading />
-            <MainText />
-            <ActionSteps />
-            <Benefits />
+            <Heading data = {data}/>
+            <MainText data = {data}/>
+            <ActionSteps data = {data}/>
+            <Benefits data = {data}/>
         </div>
     )
 }
 
-export default FindHome
+export default LandingPage

@@ -3,8 +3,9 @@ import { HouseContext } from '../context/HouseContext';
 import { GetHouseInfo } from '../utilities/HouseSearch';
 
 const SearchBars = () => {
-    const {dispatch} = useContext(HouseContext)
 
+
+    const {houses, dispatch} = useContext(HouseContext)
     const [address , setAddress] = useState('');
     const [city , setCity] = useState('');
     const [sta , setSta] = useState('');
@@ -14,7 +15,12 @@ const SearchBars = () => {
         e.preventDefault();
         GetHouseInfo({addr: address.trim(), city: city.trim(), sta: sta.trim()})
             .then(data => { 
-                dispatch({type:'SEARCH_ZPID', addr:address, city:city, sta:sta , info: data})
+                console.log("Final Stuff", data)
+                if (data) {
+                    dispatch({type:'SEARCH_ZPID', addr:address, city:city, sta:sta , info: data, passed: true})
+                } else {
+                    dispatch({type:'SEARCH_FAILED', addr:address, city:city, sta:sta , info: houses.Homes, passed: false})
+                }
             })
         console.log(address);
     }
