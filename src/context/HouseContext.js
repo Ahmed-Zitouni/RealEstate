@@ -104,7 +104,7 @@ const HouseContextProvider = (props) => {
            'https://photos.zillowstatic.com/p_d/ISynggd29jf9zh0000000000.jpg',
            'https://photos.zillowstatic.com/p_d/IS2z74ccsmikzh0000000000.jpg' ],
         desc:
-        'Welcome Home to Beech Kearny Apartments' }], Display:{DashBoard : true}}
+        'Welcome Home to Beech Kearny Apartments' }], Display:{DashBoard : true}, Input:{passed:true}}
       );
     useEffect(() => {
       localStorage.setItem('books', JSON.stringify(houses));

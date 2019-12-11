@@ -88,6 +88,11 @@ table {
   display: flex;
   align-items: center;
 }
+.NavBar > div > li:nth-of-type(1) {
+  margin-left: 0px;
+  width: 17%;
+  min-width: 175px;
+}
 .NavBar > div > div{
   text-align: right;
   flex: 1 1;
@@ -98,6 +103,7 @@ table {
 }
 .NavBar > div > li {
   display: inline-block;
+  margin-left: 19px;
   text-align: center;
   margin-left: 2%;
   display: flex;
@@ -106,10 +112,13 @@ table {
 }
 .NavBar >div > li:nth-child(1) a {
   padding-left: 0;
-  height: auto;
+  height: 100%;
   width: 100%;
-  padding-right: 14px;
-  margin-bottom: 10px;
+}
+.NavBar >div > li:nth-child(1) > a > img{
+  object-fit: contain;
+  margin-bottom: 4%;
+  width: 85%;
 }
 .NavBar div li a {
   font-size: 1rem;
@@ -176,6 +185,7 @@ input[type="text"]:focus, input[type="submit"]:focus {
   }
 input[type="text"] {
   font-size: 94%;
+  width: 100%;
 }
 .SearchBars {
   grid-area: s;
@@ -212,7 +222,7 @@ input[type="text"] {
   width: 100%;
   padding: 0px 16px;
   background: #fff;
-  border: 1px solid #d5d9dd;
+  border: 1px solid #efefef;
   border-radius: 3px;
   align-items: center;
   display: flex;
@@ -220,14 +230,18 @@ input[type="text"] {
 }
 .SearchBars form li:nth-child(1) {
   width: 20%;
+  min-width: 120px;
+  position: relative;
 }
 .SearchBars form li:nth-child(2) {
   width: 11%;
   margin-left: 2%;
+  min-width: 70px;
 }
 .SearchBars form li:nth-child(3) {
   width: 6%;
   margin-left: 2%;
+  min-width: 60px;
 }
 .SearchBars form > input {
   width: 8%;
@@ -235,15 +249,9 @@ input[type="text"] {
   margin-left: 2%;
   background-color: #00B074;
   color: white;
-}
-.SearchBars > form > input {
-  background-color: #00B074; /* Green */
-  border: none;
-  color: white;
-  margin-left: 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+  cursor: pointer;
+  border-radius: 3px;
+  min-width: 70px;
 }
 .DashBoard {
   flex-direction: column;
@@ -273,6 +281,29 @@ input[type="text"] {
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 265px;
 }
+.DashBoard > div::-webkit-scrollbar-track
+{
+	/*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;*/
+}
+
+.DashBoard > div::-webkit-scrollbar
+{
+  width: 8px;
+	/*background-color: #F5F5F5;*/
+}
+
+.DashBoard > div::-webkit-scrollbar-thumb {
+	border-radius: 6px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+.DashBoard > div::-webkit-scrollbar-thumb:active {
+	border-radius: 8px;
+  -webkit-box-shadow: 0 0 1px 1px hsla(0,0%,100%,.25);
+}
+
 .DashBoard span {
   color: #a3abab;
   font-weight: 500;
@@ -288,37 +319,30 @@ input[type="text"] {
   border-radius: 5% 5% 0px 0px;
   margin-bottom: 10%;
 }
-@media only screen and (max-width: 1000px) {
-  .DashBoardItems {
-    padding-right: 3%;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    height: 60%;
-    width: 45%;
-  }
-}
 .DashBoardIcons {
   display: flex;
-  align-self: flex-start;
+  align-self: center;
   flex-direction: row;
-  margin-left: 4%;
-  padding-top: 4%;
+  width: 100%;
+  justify-content: space-evenly;
+  padding: 2% 0%;
+  height: 10%;
 }
 .DashBoardIcons li {
   display: flex;
   flex-direction: row;
-  padding: 5px;
   color: #a3abab;
   font-size: 0.85rem;
   font-weight: 500;
+  align-items: center;
 }
 .DashBoardIcons li sup{
   font-size: 0.6rem;
+  padding-bottom: 0.4rem;
 }
 .DashBoardImg {
   width: 100%;
-  height: 50%;
+  height: 60%;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -341,9 +365,10 @@ input[type="text"] {
   list-style: none;
 }
 .DashBoardMainData {
-  padding-top: 5%;
-  padding-bottom: 6%;
+  padding-top: 4%;
+  padding-bottom: 1%;
   margin-left: 4%;
+  height: 25%;
 }
 .DashBoardMainData li{
   padding: 2px 0px;
@@ -352,31 +377,21 @@ input[type="text"] {
   font-weight: bold;
   color: #2F3D44;
   font-size: .9rem;
+  min-width: 110px;
 }
-@media only screen and (max-width: 900px) {
 
-.DashBoardMainData :nth-child(1){
-  font-weight: bold;
-  font-size: .7rem;
-}
-}
-@media only screen and (max-width: 650px) {
-
-  .DashBoardMainData :nth-child(1){
-    font-weight: bold;
-    font-size: .9rem;
-  }
-}
 .DashBoardMainData :nth-child(2){
   color: #9da6a6;
   font-size: 0.8rem;
   font-weight: 400;
+  min-width: 60px;
 }
 .DashBoardMainData :nth-child(3){
   color: #00B074;
-  padding-top: 13%;
+  padding-top: 8%;
   font-weight: 800;
   font-size: 1rem;
+  min-width: 50px;
 }
 .HouseInfoMain {
   box-shadow: -2px 2px 5px 0 rgba(0,0,0,.4);
@@ -388,9 +403,10 @@ input[type="text"] {
 }
 .HouseInfo-close {
   position: absolute;
-  top: 50%;
+  top: 40%;
   color: #546479;
-  right: -3.4%;  z-index: 100;
+  right: -24px;  
+  z-index: 100;
   width: 45px;
   height: 45px;
   cursor: pointer;
@@ -401,7 +417,29 @@ input[type="text"] {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: linear;
+	animation-duration: 0.3s;
 }
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+/*
+.HouseInfo-close:target {
+  -webkit-transition: opacity 1.5s ease-in;
+  -moz-transition: opacity 1.5s ease-in;
+  -o-transition: opacity 1.5s ease-in;
+  opacity: 1; 
+}
+*/
 .HouseInfo-Wrap {
   flex-direction: column;
   overflow-y: hidden;
@@ -415,14 +453,14 @@ input[type="text"] {
   padding: 8px;
   overflow-y: scroll;
   margin: 0px 20px;
+  margin-top: 50px;
   overflow-x: hidden;
   height: 100%;
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 30px 120px 120px 40px 40px 20px 50px 50px 120px;
+  grid-template-rows: 120px 120px 40px 40px 20px 50px 50px 180px;
   grid-template-areas: 
-    "n n n n n n n n n n n n"
     "s1 s1 s1 b b b b b b b b b"
     "s2 s2 s2 b b b b b b b b b "
     "mt mt mt mt mt mt mt mt pt pt pt pt"
@@ -432,6 +470,29 @@ input[type="text"] {
     "d4 d4 d4 d4 d5 d5 d5 d5 d6 d6 d6 d6"
     "dt dt dt ds ds ds ds ds ds ds ds ds"
 }
+.HouseInfo::-webkit-scrollbar-track
+{
+	/*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;*/
+}
+
+.HouseInfo::-webkit-scrollbar
+{
+  width: 8px;
+	/*background-color: #F5F5F5;*/
+}
+.HouseInfo::-webkit-scrollbar-thumb {
+	border-radius: 6px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #555;
+  max-height: 50px;
+}
+.HouseInfo::-webkit-scrollbar-thumb:active {
+	border-radius: 8px;
+  -webkit-box-shadow: 0 0 1px 1px hsla(0,0%,100%,.25);
+}
+
 .HouseInfo-small {
   grid-area: s1;
   border-radius: 6%;
@@ -464,7 +525,7 @@ input[type="text"] {
   height: 1.5rem;
 }
 .HouseInfo-small-o > div > span {
-  font-size: 1.1vw;
+  font-size: 1rem;
   text-align: center;
   padding-left: 2%;
   color: rgba(255, 255, 255, .9);
@@ -473,6 +534,7 @@ input[type="text"] {
   background-color: rgba(255, 255, 255, 0.0) !important;
   color: white !important;
   filter: drop-shadow(rgb(59, 65, 68) 1px 2px 2px) !important;
+  text-shadow: 2px 1px 10px rgba(0,0,0,0.8);
 }
 .GestureGallery {
   grid-area: b;
@@ -522,6 +584,9 @@ input[type="text"] {
   align-items: center;
   padding-top: 8px;
   display: flex;
+}
+.HouseInfo > ul li:nth-child(2) > sup{ 
+  padding-bottom: 5%;
 }
 .Gallery__NavigationArrow > button {
   width: 60px !important;
@@ -638,12 +703,6 @@ input[type="text"] {
   grid-area: m;
   height: auto;
   position: relative;
-}
-@media only screen and (max-width: 650px) {
-  .GMap {
-    height: auto;
-    display:none
-  }
 }
 .MapInfo {
   width: 200px;
@@ -765,9 +824,9 @@ input[type="text"] {
   border-radius: 50%;
   font-weight: 600;
   background-color: #36bb19;
-  width: 29%;
+  width: 8rem;
   margin-left: 5%;
-  height: 16%;
+  height: 2.6rem;
   color: white;
   align-items: center;
   justify-content: center;
@@ -980,4 +1039,284 @@ input[type="text"] {
   font-size: 0.9rem;
   line-height: 1.7rem;
   color: #868399;
+}
+@media only screen and (max-width: 1220px) {
+  .NavBar > div > li:nth-of-type(1) {
+    margin-left: 0px;
+    width: 17%;
+  }
+  .NavBar div li a {
+    font-size: 0.72rem;
+    line-height: 1rem;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .DashBoard > div {
+    grid-gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .HouseInfo-close {
+    /*right: -4.6%;*/
+}
+}
+@media only screen and (max-width: 780px) {
+  .DashBoardMainData {
+    padding-top: 2%;
+    margin-left: 4%;
+    height: 25%;
+}
+.DashBoardMainData :nth-child(3) {
+  padding-top: 3%;
+  font-size: 1rem;
+}
+  input[type="text"] {
+    font-size: 85%;
+}
+  .NavBar > div > li:nth-of-type(1) {
+    width: 17%;
+    min-width: 140px;
+  }
+  .DashBoardImg {
+    height: 75%;
+  }
+  .DashBoardIcons {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    height: 10%;
+  }
+  .DashBoardIcons li {
+    font-size: 0.95rem;
+  }
+  .DashBoard > div {
+    grid-gap: 20px;
+  }
+  .DashBoard {
+    grid-area: d;
+  }
+  .GMap {
+    display: none;
+  }
+  .MainWrapper {
+    grid-gap: 0px;
+    grid-template-areas: 
+      "h h"
+      "s s"
+      "d d";
+  }
+}
+@media only screen and (max-width: 1166) {
+  .HouseInfo-close {
+   /* right: -4.1%; */
+}
+}
+@media only screen and (max-width: 1000px) {
+  .FindHome-Hero-Text > div> h1 {
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+  }
+  .FindHome-Hero-Text > div > p {
+    font-size: 90%;
+    line-height: 1.1rem;
+  }
+  .MainText-Wrapper > div:nth-of-type(1) > h1 {
+    width: 60%;
+    font-size: 70%;
+    padding-top: 2%;
+    line-height: 2.7rem;
+    text-align: center;
+}
+.MainText-Wrapper > div:nth-of-type(2) > div:nth-of-type(1) h2 {
+  width: 70%;
+  font-weight: 600;
+  padding-top: 4%;
+  font-size: 75%;
+  line-height: 1.5rem;
+  margin-right: 2%;
+}
+.MainText-Wrapper > div:nth-of-type(2) > div:nth-of-type(1) p {
+  width: 70%;
+  font-weight: 300;
+  padding-top: 4%;
+  font-size: 75%;
+  line-height: 1.5rem;
+  margin-right: 2%;
+}
+.Benefits-Wrapper > div > div > div > div > p {
+  margin-top: 3%;
+  width: 100%;
+  height: 60%;
+  font-size: 0.8rem;
+  line-height: 1.3rem;
+  color: #868399;
+}
+}
+@media only screen and (max-width: 810px) {
+  .FindHome-Hero-Text > div > div {
+    font-size: 0.8rem;
+    width: 6rem;
+    height: 2.1rem;
+}
+.FindHome-Hero-Text > div > div > p {
+  font-size: 0.65rem;
+}
+  .FindHome-Hero-Text > div> h1 {
+    width: 80%;
+    font-size: 150%;
+    line-height: 2.4rem;
+  }
+  .FindHome-Hero-Text > div > p {
+    font-size: 60%;
+    line-height: 1rem;
+}
+.ActionSteps-Wrapper {
+  flex-direction: column;
+}
+.ActionSteps-Wrapper > div {
+  width: 100%;
+  height: 30%;
+  padding-top: 3rem;
+  flex-direction: row;
+}
+.ActionSteps-Wrapper > div:nth-of-type(3), .ActionSteps-Wrapper > div:nth-of-type(2) {
+  margin-left: 0%;
+}
+.ActionSteps-Wrapper > div > div:nth-of-type(1) {
+  width: 60%;
+  height: 100%;
+}
+.ActionSteps-Wrapper > div > div:nth-of-type(2) {
+  margin-top: 1rem;
+  width: 100%;
+  height: 100%;
+}
+.ActionSteps-Wrapper > div > div h1 {
+  height: 12%;
+  font-size: 1rem;
+  color: #231957;
+  padding-left: 10%;
+  border-left: none; 
+}
+.ActionSteps-Wrapper > div > div > p {
+  font-size: 0.75rem;
+  color: #868399;
+  padding-left: 12%;
+  padding-top: 6%;
+  font-weight: 300;
+  line-height: 1.1rem;
+}
+.MainText-Wrapper > div:nth-of-type(2) > div > img {
+  height: 90%;
+  width: 90%;
+  object-fit: cover;
+}
+.MainText-Wrapper {
+  min-height: 600px;
+  color: #231957;
+  margin-top: 5%;
+  width: 75%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.MainText-Wrapper > div:nth-of-type(1) {
+  width: 100%;
+  height: 35%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+.MainText-Wrapper > div:nth-of-type(1) > h1 {
+  width: 60%;
+  font-size: 70%;
+  padding-top: 2%;
+  line-height: 2.7rem;
+  text-align: center;
+}
+.MainText-Wrapper > div:nth-of-type(2) {
+  width: 100%;
+  height: 65%;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+}
+.MainText-Wrapper > div:nth-of-type(2) > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.MainText-Wrapper > div:nth-of-type(2) > div:nth-of-type(1) p {
+  width: 70%;
+  font-weight: 300;
+  padding-top: 4%;
+  font-size: 70%;
+  line-height: 1.1rem;
+  margin-right: 2%;
+}
+.MainText-Wrapper > div:nth-of-type(2) > div:nth-of-type(1) h2 {
+  width: 70%;
+  font-weight: 600;
+  padding-top: 2%;
+  font-size: 70%;
+  line-height: 1.1rem;
+  margin-right: 2%;
+}
+.Benefits-Wrapper {
+  margin-top: 100px;
+}
+.Benefits-Wrapper > div:nth-last-of-type(1) > div:nth-of-type(1) > div >h1 {
+  font-size: 1.5rem;
+  line-height: 2.2rem;
+}
+.Benefits-Wrapper > div > div > div > div > h1 {
+  font-size: 0.85rem;
+  line-height: 1.4rem;
+}
+.Benefits-Wrapper > div > div > div > div > p {
+  margin-top: 3%;
+  font-size: 0.7rem;
+  line-height: 1.2rem;
+  color: #868399;
+}
+}
+@media only screen and (max-width: 700px) {
+  .FindHome-Hero-Text > div > div {
+    font-size: 0.8rem;
+    width: 5rem;
+    height: 1.7rem;
+}
+.FindHome-Hero-Text > div > div > p {
+  font-size: 0.55rem;
+}
+.Benefits-Wrapper > div {
+  margin-top: 2%;
+  height: 80%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.Benefits-Wrapper > div > div > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+.Benefits-Wrapper > div > div {
+  margin-top: 1%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.Benefits-Wrapper > div > div > div > div > p {
+  margin-top: 3%;
+  font-size: 0.6rem;
+  line-height: 1rem;
+}
 }

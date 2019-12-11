@@ -5,6 +5,7 @@
   "dependencies": {
     "dom-parser": "^0.1.6",
     "react": "^16.11.0",
+    "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.11.0",
     "react-gesture-gallery": "^1.1.0",
     "react-gesture-responder": "^2.1.0",
@@ -12,6 +13,7 @@
     "react-icons": "^3.8.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
+    "simplebar": "^5.0.7",
     "simplebar-react": "^2.0.10"
   },
   "scripts": {

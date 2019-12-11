@@ -98,8 +98,12 @@ const DescText = {
     fontWeight: 400,
     color: '#2F3D44',
     alignItems: 'flex-start',
-    paddingTop: '14px',
-    display: 'flex'
+    paddingTop: '2%',
+    display: 'flex',
+    lineHeight: "1.1rem",
+    fontSize: "0.8rem",
+    width: '90%',
+    overflow: 'hidden',
 }
 /*              
 <div className="HouseInfo-big-img">

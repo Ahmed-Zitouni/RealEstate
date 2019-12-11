@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { GoogleMap , withScriptjs, withGoogleMap, Marker, InfoWindow} from 'react-google-maps'
 import { FaToilet, FaBed, FaChevronRight } from 'react-icons/fa';
 import { HouseContext } from '../context/HouseContext';
@@ -70,13 +70,22 @@ function Map() {
 
 const MapWrapped = withScriptjs(withGoogleMap(Map))
 export default function GMap () {
-  const {dispatch} = useContext(HouseContext)
+  const {houses, dispatch} = useContext(HouseContext)
+
+  let DisplayClose = "flex";
+
+  DisplayClose = !houses.Display.DashBoard ? DisplayClose = "flex" : DisplayClose = "none" 
+
+  let CloseButton = {
+    display: DisplayClose,
+  }
+  console.log("Done", CloseButton);
   const OpenDash = () => {
     dispatch({type:'HOUSE_INFO', dash: true, Item: 0})
   }
     return (
         <div className="GMap">
-          <div className="HouseInfo-close" onClick={() => OpenDash()}>
+          <div className="HouseInfo-close" style={CloseButton} onClick={() => OpenDash()}>
             <FaChevronRight style={Icons} />
           </div>
           <MapWrapped

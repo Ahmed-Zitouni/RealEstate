@@ -10,7 +10,7 @@ const HouseListing = ({ x, elem }) => {
     const {houses,dispatch} = useContext(HouseContext)
     let house = houses.Homes[elem];
     const MoreInfo = () => {
-        dispatch({type:'HOUSE_INFO', DashBoard: false, Item: elem})
+        dispatch({type:'HOUSE_INFO', dash: false, Item: elem})
     }
     return ( 
         <div onClick = {() => MoreInfo()} className = "DashBoardItems">

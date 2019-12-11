@@ -4,7 +4,7 @@ export const HouseReducer = (state, action) => {
         case 'SEARCH_ZPID':
             return({
                 ...state,
-                input : {
+                Input : {
                     addr: action.addr,
                     city: action.city,
                     sta: action.sta,
