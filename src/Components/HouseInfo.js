@@ -75,7 +75,7 @@ const Icons = {
     width: '20px',
     height: '20px',
     paddingLeft: '5%',
-    alignItems: 'center',
+    alignItems: 'center', 
 }
 const Image = {
     height: '1.5rem',
