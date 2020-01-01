@@ -17,7 +17,6 @@ const NavBar = (props) => {
                             activeStyle={{
                             color: '#0acc3c',
                             fontWeight: '600',
-                            fontSize: '1.07rem'
                           }}>
                                 <span>Buy</span>
                            </NavLink > 
@@ -27,7 +26,6 @@ const NavBar = (props) => {
                             activeStyle={{
                                 color: '#0acc3c',
                                 fontWeight: '600',
-                                fontSize: '1.07rem'
                               }}>
                                 <span>Sell</span>
                            </NavLink > 
@@ -37,7 +35,6 @@ const NavBar = (props) => {
                             activeStyle={{
                                 color: '#0acc3c',
                                 fontWeight: '600',
-                                fontSize: '1.07rem'
                               }}>
                                 <span>Rentals</span>
                            </NavLink > 

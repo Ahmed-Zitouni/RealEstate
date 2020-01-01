@@ -525,14 +525,14 @@ input[type="text"] {
   width: 10px;
   border-radius: 6px;
 }
-.DashBoard::-webkit-scrollbar {
+.DashBoard > div::-webkit-scrollbar {
   width: 10px;
   border-radius: 6px;
 }
 .HouseInfo::-webkit-scrollbar-track:hover {
   background-color: #cccccc;
 }
-.DashBoard::-webkit-scrollbar-track:hover {
+.DashBoard > div::-webkit-scrollbar-track:hover {
   background-color: #cccccc;
 }
 
@@ -541,7 +541,7 @@ input[type="text"] {
   border-radius: 6px;
   max-height: 50px;
 }
-.DashBoard::-webkit-scrollbar-thumb {
+.DashBoard > div::-webkit-scrollbar-thumb {
   background-color: #cccccc;
   border-radius: 6px;
   max-height: 50px;
@@ -549,13 +549,13 @@ input[type="text"] {
 .HouseInfo::-webkit-scrollbar-thumb:hover {
   background-color: #747474;
 }
-.DashBoard::-webkit-scrollbar-thumb:hover {
+.DashBoard > div::-webkit-scrollbar-thumb:hover {
   background-color: #747474;
 }
 .HouseInfo::-webkit-scrollbar-thumb:active {
   background-color: #5d5d5d;
 }
-.DashBoard::-webkit-scrollbar-thumb:active {
+.DashBoard > div::-webkit-scrollbar-thumb:active {
   background-color: #5d5d5d;
 }
 /*
