@@ -6,7 +6,6 @@ import ActionSteps from './ActionStepa'
 import Benefits from './Benefits'
 
 const LandingPage = (data) => {
-    console.log(data);
     return (
         <div className ="FindHomeWrapper">
             <NavBar />

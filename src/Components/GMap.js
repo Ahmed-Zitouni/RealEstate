@@ -1,7 +1,9 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import { GoogleMap , withScriptjs, withGoogleMap, Marker, InfoWindow} from 'react-google-maps'
-import { FaToilet, FaBed, FaChevronRight } from 'react-icons/fa';
+import { FaToilet, FaBed } from 'react-icons/fa';
+import { AiOutlineDoubleRight } from 'react-icons/ai';
 import { HouseContext } from '../context/HouseContext';
+import MarkerIcon from '../Logo/MarkerIcon.svg';
 
 import MapStyles from '../utilities/MapStyles'
 const APIKey = "AIzaSyDcXNX_SoIFTdYVs0QPk8e9ST6e9YwwN2c";
@@ -15,9 +17,12 @@ function Map() {
     }
     return (
         <GoogleMap 
-            defaultZoom={11}
-            defaultCenter={{lat: 40.759350, lng: -74.151770}}
+            defaultZoom={15}
+            defaultCenter={{lat: 40.834536, lng: -74.102201}}
             defaultOptions={{styles:MapStyles}}
+            onDragStart={() => setSelectedHouse(null)}
+            onMouseOver={() => setSelectedHouse(null)}
+            //center ={{ lat: houses.Homes.length > 1 ? houses.Homes[1].latitude : 0, lng: houses.Homes.length > 1 ? houses.Homes[1].longitude : 0 }}
         >
         {houses.Homes.map((home) => (
         <Marker
@@ -29,13 +34,11 @@ function Map() {
           
           onMouseOver={() => {
             setSelectedHouse(home);
-            }}
-          /*
-          icon={{
-            url: `/skateboarding.svg`,
-            scaledSize: new window.google.maps.Size(25, 25)
           }}
-          */
+          icon={{
+            url: MarkerIcon,
+            scaledSize: new window.google.maps.Size(30, 30)
+          }}
         />
          ))}
          {selectedHouse && (
@@ -49,7 +52,10 @@ function Map() {
             lng: selectedHouse.longitude
           }}
         >
-        <div onMouseLeave={() => { setSelectedHouse(null);}}
+        <div
+          onMouseLeave={() => {
+            setSelectedHouse(null);
+          }}
             onClick = {(e) => MoreInfo(e)}
             className = "MapInfo">
 
@@ -78,15 +84,15 @@ export default function GMap () {
 
   let CloseButton = {
     display: DisplayClose,
+    
   }
-  console.log("Done", CloseButton);
   const OpenDash = () => {
     dispatch({type:'HOUSE_INFO', dash: true, Item: 0})
   }
     return (
         <div className="GMap">
           <div className="HouseInfo-close" style={CloseButton} onClick={() => OpenDash()}>
-            <FaChevronRight style={Icons} />
+            <AiOutlineDoubleRight style={CloseIcon} />
           </div>
           <MapWrapped
               googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${APIKey}`}
@@ -97,12 +103,12 @@ export default function GMap () {
         </div>
     );
 }
-const Icons = {
+const CloseIcon = {
   style: { verticalAlign: 'middle' },
   padding: '0 0.2em 0 0.2em',
   width: '1.3rem',
   height: '1.3rem',
-  color: '#a3abab'
+  color: 'rgb(77, 93, 93)'
 }
 const Iconsbed = {
     style: { verticalAlign: 'middle' },

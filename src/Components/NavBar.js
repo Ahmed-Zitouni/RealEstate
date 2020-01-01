@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from '../Logo/Logo.png'
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 const NavBar = (props) => {
         return (
@@ -9,38 +9,43 @@ const NavBar = (props) => {
                     <div className="NavBar_Div"> 
                         <li style={{marginLeft: 0}}>
                             <Link to="/">
-                                <img src={Logo}/>
+                                <img src={Logo} alt="Logo"/>
                            </Link> 
                         </li>
                         <li>
-                           <Link to="/Find-A-Home">
-                                <span>Find A Home</span>
-                           </Link> 
+                           <NavLink  to="/Find-A-Home"
+                            activeStyle={{
+                            color: '#0acc3c',
+                            fontWeight: '600',
+                            fontSize: '1.07rem'
+                          }}>
+                                <span>Buy</span>
+                           </NavLink > 
                         </li>
                         <li>
-                            <Link to="/Sell-A-Property">
-                                <span>Sell A Property</span>
-                           </Link> 
+                            <NavLink to="/Sell-A-Property"
+                            activeStyle={{
+                                color: '#0acc3c',
+                                fontWeight: '600',
+                                fontSize: '1.07rem'
+                              }}>
+                                <span>Sell</span>
+                           </NavLink > 
                         </li>
                         <li>
-                            <Link to="/Manage-Rentals">
-                                <span>Manage Rentals</span>
-                           </Link> 
+                            <NavLink to="/Manage-Rentals"
+                            activeStyle={{
+                                color: '#0acc3c',
+                                fontWeight: '600',
+                                fontSize: '1.07rem'
+                              }}>
+                                <span>Rentals</span>
+                           </NavLink > 
                         </li>
                         <div className="NavBar_Right_Div">
-                            <li><a href="#hoae"><span>Login</span></a></li>
                         </div>
                     </div>
                 </div>
         )
-}
-const LogoIc = {
-    display: 'block',
-    color: 'rgb(18, 180, 124)',
-    textAlign: 'center',
-    textDecoration: 'none',
-    fontSize: '3.2vw',
-    width: '20vw',
-    fontWeight: 'bold'
 }
 export default NavBar;

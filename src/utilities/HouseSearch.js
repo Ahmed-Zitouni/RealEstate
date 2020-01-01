@@ -1,4 +1,5 @@
-import fetch from 'node-fetch';
+import axios from "axios";
+
 //import DomParser from 'dom-parser';
 
 let FirstH = {zpidList: 0};
@@ -9,7 +10,6 @@ export const GetHouseInfo = async (UserInfo) => {
   input = {addr: UserInfo.addr, city: UserInfo.city, sta: UserInfo.sta}
   return Promise.resolve(Search(input.addr, input.city, input.sta, "first"))
     .then(ndata => {
-      console.log(ndata)
       if(ndata) {
         return Search("st", input.city, input.sta, "second");
       } else {
@@ -28,7 +28,7 @@ export const GetHouseInfo = async (UserInfo) => {
       if(data) {
         let HomeData = [];
         data.map(home => {
-          if (typeof home != "undefined") {
+          if (typeof home !== "undefined") {
             if (home.state != "?") {
               home.id = counter++;
               home.latitude = parseFloat(home.latitude);
@@ -42,6 +42,7 @@ export const GetHouseInfo = async (UserInfo) => {
         });
         return HomeData;
       } else {
+        console.log("Failed")
         return false;
       }
     });
@@ -52,17 +53,34 @@ export const GetHouseInfo = async (UserInfo) => {
     }
   }
 };
+const GetHouseData = async(zpid) => {
+  try {
+    let Data = await axios.get(`/GetUpdatedPropertyDetails.htm?zws-id=X1-ZWz1hgyxiq6fbf_6ed93&zpid=${zpid}`)
+    let resp = `${Data.data}`
+    return new DOMParser().parseFromString(resp, "application/xml")
+  
+  } catch (error) {
+    console.error(error)
+  }
+}
+const GetData = async(addr, city, sta) => {
+  try {
+    let Data = await axios.get(`/GetDeepSearchResults.htm?zws-id=X1-ZWz1hgyxiq6fbf_6ed93&address=${addr}&citystatezip=${city}%2C+${sta}&rentzestimate=true`)
+    let resp = `${Data.data}`
+    return new DOMParser().parseFromString(resp, "application/xml")
+
+  } catch (error) {
+    console.error(error)
+}
+}
 
 const Search = (addr, city, state, first) => {
   let AddrUrl = `http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=X1-ZWz1hgyxiq6fbf_6ed93&address=${addr}&citystatezip=${city}%2C+${state}&rentzestimate=true`;
-  return fetch(AddrUrl)
-    .then(response => response.text())
-    .then(data => {
-      let xml = new DOMParser().parseFromString(data, "application/xml");
+  return GetData(addr, city, state)
+    .then( xml => {
       let rent = "?";
       let amount = "";
       let ZpidList = [];
-      console.log(xml)
       if (!xml.getElementsByTagName("code")[0].innerHTML != 0 || !xml.getElementsByTagName("result")[0]) {
         if(first == "first") {
            throw "NOFIRSTHOUSE"
@@ -86,7 +104,6 @@ const Search = (addr, city, state, first) => {
           rent: rentdata,
           amount : amountdata
         });
-        console.log(ZpidList)
         FirstH = ZpidList[0];
       } else {
         if (first == "second") {
@@ -115,7 +132,6 @@ const Search = (addr, city, state, first) => {
           i++;
         }
       }
-      console.log(ZpidList);
       return ZpidList;
     })
     .catch(function(err) {
@@ -133,29 +149,28 @@ const Search = (addr, city, state, first) => {
 const HouseInfo = (zpid, index) => {
   //console.log(zpid);
   let InfoUrl = `http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=X1-ZWz1hgyxiq6fbf_6ed93&zpid=${zpid.zpidList}`;
+  
   return Promise.resolve(
-    fetch(InfoUrl)
-      .then(response => response.text())
-      .then(dataa => {
+    GetHouseData(zpid.zpidList)
+      .then( xml => {
         let AllImages = [];
-        let xml = new DOMParser().parseFromString(dataa, "application/xml");
         //console.log(xml)
         let HouseData = {
           city: "?",
           state: "?",
           street: "?",
-          useCode: "",
+          useCode: "Unknown",
           bedrooms: "?",
           bathrooms: "?",
           finishedSqFt: "",
-          yearBuilt: "Unknown",
-          parkingType: "",
           zpid: zpid.zpidList,
           rent: zpid.rent,
           amount: zpid.amount,
           index: index,
           images: [],
-          desc: null
+          desc: "No description provided",
+          parkingType: "On-street",
+          yearBuilt: "Unknown"
         };
         if(HouseData.amount) {
           HouseData.amount = parseInt(HouseData.amount, 10).toLocaleString()
@@ -193,7 +208,13 @@ const HouseInfo = (zpid, index) => {
               });
             }
             if (xml.getElementsByTagName("url")[0]) {
-              const [...Images] = xml.getElementsByTagName("url");
+              let [...Images] = xml.getElementsByTagName("url");
+              if(Images.length > 2) {
+                let rand = Math.floor(Math.random() * (Images.length - 1))
+                let temp = Images[0] 
+                Images[0] = Images[rand]
+                Images[rand] = temp
+              }
               Images.map(Img => {
                 AllImages.push(Img.innerHTML);
               });
@@ -204,17 +225,10 @@ const HouseInfo = (zpid, index) => {
             }
 
             if (HouseData.images.length < 2) {
-              if (HouseData.images.length == 0) {
                 AllImages.push(`https://maps.googleapis.com/maps/api/streetview?size=400x400&location=${HouseData.latitude},${HouseData.longitude}
 							&fov=80&heading=70&pitch=0&key=AIzaSyDcXNX_SoIFTdYVs0QPk8e9ST6e9YwwN2c`);
-                AllImages.push(
-                  `https://maps.googleapis.com/maps/api/staticmap?center=${HouseData.latitude},${HouseData.longitude}&zoom=15&size=400x400&maptype=roadmap&key=AIzaSyDcXNX_SoIFTdYVs0QPk8e9ST6e9YwwN2c`
-                );
-              } else {
-                AllImages.push(`https://maps.googleapis.com/maps/api/streetview?size=400x400&location=${HouseData.latitude},${HouseData.longitude}
-							&fov=80&heading=70&pitch=0&key=AIzaSyDcXNX_SoIFTdYVs0QPk8e9ST6e9YwwN2c`);
-                //put satalite view from google
-              }
+                //puts satalite view from google
+
               HouseData = {
                 ...HouseData,
                 images: AllImages
@@ -233,7 +247,6 @@ const HouseInfo = (zpid, index) => {
       })
   );
 };
-
   //HouseInfo('2082540322',2);
   
   

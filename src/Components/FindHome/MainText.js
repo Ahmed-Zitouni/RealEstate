@@ -15,7 +15,7 @@ const MainText = (props) => {
                     <p>{MainText[3]}</p>
                 </div>
                 <div>
-                    <img src = {Images[1]} />
+                    <img src = {Images[1]} alt ="HouseImg"/>
                 </div>
             </div>
         </div>

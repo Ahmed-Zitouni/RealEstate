@@ -19,9 +19,4 @@ function App() {
       </div>
   );
 }
-const MidSection = {
-  display: 'flex',
-  flexDirection: 'row',
-  width: '100%'
-}
 export default App;

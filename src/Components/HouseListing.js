@@ -15,18 +15,19 @@ const HouseListing = ({ x, elem }) => {
     return ( 
         <div onClick = {() => MoreInfo()} className = "DashBoardItems">
                 <div className = "DashBoardImg">
-                    <img src = {house.images[0]} name={elem}/>
+                    <img src = {house.images[0]} name={elem} alt ={house.images[0].street}/>
+                    <li>${house.amount ? house.amount : house.rent}</li>
+                    <div/>
                 </div>
                 <div className = "DashBoardMainData">
                     <li> {house.street}</li>
                     <li>{house.city}, {house.state}</li>
-                    <li>${house.amount ? house.amount : house.rent}</li>
                 </div>
             <div style = {underline}/>
             <div className = "DashBoardIcons">
                 <li style={{paddingLeft: 0}}><FaBed style = {Icons}/> {house.bedrooms}</li>
                 <li><FaToilet style = {Icons}/> {house.bathrooms}</li>
-                <li><FaExternalLinkSquareAlt style = {Icons}/>{house.finishedSqFt} ft<sup>2</sup></li>
+                {house.finishedSqFt ?<li><FaExternalLinkSquareAlt style = {Icons}/>{house.finishedSqFt} ft<sup>2</sup></li> : null}
             </div>
         </div>
      );

@@ -1,8 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
  const Heading = (props) => {
 
-    console.log('Real', props)
     const Header = props.data.data.Header;
     const Images = props.data.data.Images;
     const Background = {
@@ -24,7 +24,7 @@ import React from 'react'
                     </div>
                     <div>
                         <p>{Header[1]}</p>
-                        <div><p>Seach For Homes</p></div>
+                        <Link to ="/"><p>Seach For Homes</p></Link>
                     </div>
                 </div>
             </div>

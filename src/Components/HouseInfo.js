@@ -1,39 +1,46 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { HouseContext } from '../context/HouseContext';
-import { FaToilet, FaBed, FaImage, FaAngleDoubleRight, FaChevronRight } from 'react-icons/fa';
+import { FaToilet, FaBed, FaImage } from 'react-icons/fa';
 
 import { Gallery, GalleryImage } from 'react-gesture-gallery';
+import {FaLongArrowAltLeft} from 'react-icons/fa'
 
-function HouseInfo(props) {
+const HouseInfo = (props) => {
 
     const [imageNum, setImageNum] = useState(0);
     const {houses, dispatch} = useContext(HouseContext)
     const num = houses.Display.Item;
-    console.log('OOOO',houses);
     let Home = houses.Homes[num];
 
-    //{<div style={{backgroundImage : `url('')`}}></div>}
+    const OpenDash = () => {
+        dispatch({type:'HOUSE_INFO', dash: true, Item: 0})
+    }
+    useEffect(() => {
+        setImageNum(0)
+    }, [num])
     return (
     <div className="HouseInfo-Wrap">
+        <div id="BackBtn" onClick={() => OpenDash()}><FaLongArrowAltLeft/> Back</div>
         <div className="HouseInfo">
             <div className="HouseInfo-small">
                 <img src={Home.images[0]} alt={Home.state}/>
             </div>
             <div className="HouseInfo-small-o">
-                <img src={Home.images[1]} alt={Home.city}/>
+                <img src={Home.images[Home.images.length - 1]} alt={Home.city}/>
                 <div>
                     <div><FaImage style={Image}/></div>
                     <span>{Home.images.length}</span>
                 </div>
             </div>
             <Gallery 
+            style = {Gall}
             index={imageNum}
             onRequestChange={i => {
                 setImageNum(i);
             }}
             >
             {Home.images.map(image => (
-                <GalleryImage objectFit="cover" key={image} src={image} />
+                <GalleryImage objectFit="none" key={image} src={image} />
             ))}
             </Gallery>
             <li style={{gridArea: 'mt'}}>{Home.street}, <span>{Home.state}</span></li>
@@ -49,7 +56,7 @@ function HouseInfo(props) {
             </ul>
             <ul style={{gridArea: 'd3'}}>
                 <li>Area</li>
-                <li>{Home.finishedSqFt} ft<sup>2</sup></li>
+                <li>{Home.finishedSqFt ? <>{Home.finishedSqFt} ft<sup>2</sup></>: "?"}</li>
             </ul>
             <ul style={{gridArea: 'd4'}}>
                 <li>Built</li>
@@ -63,10 +70,10 @@ function HouseInfo(props) {
                 <li>Parking</li>
                 <li>{Home.parkingType}</li>
             </ul>
-            <li style={DescMain}>Description: </li>
+            <li id ="desc" style={DescMain}>Description: </li>
             <li style={DescText}>{Home.desc}</li>
-            </div>
         </div>
+    </div>
     )
 }
 const Icons = {
@@ -93,8 +100,8 @@ const DescMain = {
 }
 const DescText = {
     gridArea: 'ds',
-    fontSize: '0.85rem',
-    color: '#7e8989',
+    //fontSize: '0.85rem',
+    //color: '#7e8989',
     fontWeight: 400,
     color: '#2F3D44',
     alignItems: 'flex-start',
@@ -104,6 +111,12 @@ const DescText = {
     fontSize: "0.8rem",
     width: '90%',
     overflow: 'hidden',
+    marginBottom: "2rem",
+}
+const Gall = {
+    width: "90%",
+    height: "100%",
+    marginLeft: "5%",
 }
 /*              
 <div className="HouseInfo-big-img">

@@ -7,7 +7,7 @@ const ActionSteps = (props) => {
         <div className="ActionSteps-Wrapper">
             <div>
                 <div>
-                    <img src = {Images[2]}/>
+                    <img src = {Images[2]} alt ="HouseImg"/>
                     <div><p>1</p></div>
                 </div>
                 <div>
@@ -17,7 +17,7 @@ const ActionSteps = (props) => {
             </div>
             <div>
                 <div>
-                    <img src = {Images[3]}/>
+                    <img src = {Images[3]} alt ="HouseImg1"/>
                     <div><p>2</p></div>
                 </div>
                 <div>
@@ -27,7 +27,7 @@ const ActionSteps = (props) => {
             </div>
             <div>
                 <div>
-                    <img src = {Images[4]}/>
+                    <img src = {Images[4]} alt ="HouseImg2"/>
                     <div><p>3</p></div>
                 </div>
                 <div>
