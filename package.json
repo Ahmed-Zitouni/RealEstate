@@ -6,8 +6,8 @@
   "dependencies": {
     "axios": "^0.19.0",
     "dom-parser": "^0.1.6",
+    "gh-pages": "^2.1.1",
     "react": "^16.11.0",
-    "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.11.0",
     "react-gesture-gallery": "^1.1.0",
     "react-gesture-responder": "^2.1.0",
@@ -15,15 +15,15 @@
     "react-icons": "^3.8.0",
     "react-loading": "^2.0.3",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0",
-    "simplebar": "^5.0.7",
-    "simplebar-react": "^2.0.10"
+    "react-scripts": "3.2.0"
   },
+  "homepage": "https://Ahmed-Zitouni.github.io/RealEstate",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
