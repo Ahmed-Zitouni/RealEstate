@@ -65,8 +65,9 @@ const GetHouseData = async(zpid) => {
 }
 const GetData = async(addr, city, sta) => {
   try {
-    let Data = await axios.get(`https://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=X1-ZWz1hgyxiq6fbf_6ed93&address=${addr}&citystatezip=${city}%2C+${sta}&rentzestimate=true`)
+    let Data = await axios.get(`https://api.github.com/`)
     let resp = `${Data.data}`
+    console.log(Data, resp)
     return new DOMParser().parseFromString(resp, "application/xml")
 
   } catch (error) {
