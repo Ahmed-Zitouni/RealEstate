@@ -55,9 +55,17 @@ export const GetHouseInfo = async (UserInfo) => {
 };
 const GetHouseData = async(zpid) => {
   try {
-    let Data = await axios.get(`https://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=X1-ZWz1hgyxiq6fbf_6ed93&zpid=${zpid}`)
-    let resp = `${Data.data}`
-    return new DOMParser().parseFromString(resp, "application/xml")
+    let Data = await axios.get(`https://7ohlgtw9j3.execute-api.us-east-1.amazonaws.com/Info?zpid=${zpid}`)
+    //let Data = await axios.get(`https://cy5tt5zme9.execute-api.us-east-1.amazonaws.com/Deploy/Info?zpid=${zpid}`)
+    //let Data = await fetch(`http://52.87.152.58/Info/?zpid=${zpid}`)
+    //let Data = await axios.get(`http://52.87.152.58/Info/?zpid=${zpid}`)
+    //let Data = await axios.get(`http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=X1-ZWz1hgyxiq6fbf_6ed93&zpid=${zpid}`)
+    //let resp = `${Data.data}`
+    //return new DOMParser().parseFromString(resp, "application/xml")
+    console.log(Data.data)
+    Data = `${Data.data}`
+    let resp = new DOMParser().parseFromString(Data, "application/xml")
+    return resp
   
   } catch (error) {
     console.error(error)
@@ -65,10 +73,17 @@ const GetHouseData = async(zpid) => {
 }
 const GetData = async(addr, city, sta) => {
   try {
-    let Data = await axios.get(`https://api.github.com/`)
-    let resp = `${Data.data}`
-    console.log(Data, resp)
-    return new DOMParser().parseFromString(resp, "application/xml")
+    let Data = await axios.get(`https://7ohlgtw9j3.execute-api.us-east-1.amazonaws.com/House?addr=${addr}&city=${city}&state=${sta}`)
+    //let Data = await axios.get(`https://cy5tt5zme9.execute-api.us-east-1.amazonaws.com/Deploy/House?addr=${addr}&city=${city}&state=${sta}`)
+    //let Data = await fetch(`http://52.87.152.58/House/?addr=${addr}&city=${city}&state=${sta}`)
+    //let Data = await axios.get(`http://52.87.152.58/House/?addr=${addr}&city=${city}&state=${sta}`)
+    //let Data = await axios.get(`http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=X1-ZWz1hgyxiq6fbf_6ed93&address=${addr}&citystatezip=${city}%2C+${sta}&rentzestimate=true`)
+    //let resp = `${Data.msg}`
+    //return Data.msg
+    console.log(Data.data)
+    Data = `${Data.data}`
+    let resp = new DOMParser().parseFromString(Data, "application/xml")
+    return resp
 
   } catch (error) {
     console.error(error)

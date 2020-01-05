@@ -7,3 +7,5 @@ it('renders without crashing', () => {
   ReactDOM.render(<App />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
+//  "homepage": "https://Ahmed-Zitouni.github.io/RealEstate",
+//    "deploy": "npm run build && gh-pages -d build"

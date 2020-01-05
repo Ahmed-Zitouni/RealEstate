@@ -109,6 +109,7 @@ table {
   display: flex;
   height: 100%;
   align-items: center;
+  width: 3.6rem;
 }
 .NavBar >div > li:nth-child(1) a {
   padding-left: 0;
@@ -256,6 +257,9 @@ input[type="text"] {
   font-size: 15px;
   letter-spacing: 0.3px;
   box-shadow: -2px 2px 4px 0 rgba(0,0,0,.4);
+}
+.SearchBars form > input:hover {
+  background-color: #11a938;
 }
 #Loader {
   grid-template-columns: unset;
@@ -982,8 +986,8 @@ input[type="text"] {
 }
 .MainText-Wrapper > div:nth-of-type(2) > div:nth-of-type(1) p{
   width: 60%; 
-  font-weight: 300;
-  color: #868399;
+  font-weight: 400;
+  color: #5d5a73;
   padding-top: 4%;
   font-size: 0.9rem;
   line-height: 1.5rem;
@@ -1046,7 +1050,7 @@ input[type="text"] {
   background: white;
   justify-self: center;
   margin-left: 2rem;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
   font-size: 0.8rem;
   display: none;
   font-weight: 600;
