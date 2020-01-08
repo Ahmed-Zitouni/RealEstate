@@ -6,6 +6,11 @@ let FirstH = {zpidList: 0};
 let counter = 0;
 let input = {}
 export const GetHouseInfo = async (UserInfo) => {
+  let Data = await fetch(`https://7ohlgtw9j3.execute-api.us-east-1.amazonaws.com/HData?addr=${UserInfo.addr}&city=${UserInfo.city}&sta=${UserInfo.sta}`)
+  let Resp = await Data.json()
+  console.log(Resp)
+  return Resp
+  /*
   try {
   input = {addr: UserInfo.addr, city: UserInfo.city, sta: UserInfo.sta}
   return Promise.resolve(Search(input.addr, input.city, input.sta, "first"))
@@ -62,7 +67,7 @@ const GetHouseData = async(zpid) => {
     //let Data = await axios.get(`http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=X1-ZWz1hgyxiq6fbf_6ed93&zpid=${zpid}`)
     //let resp = `${Data.data}`
     //return new DOMParser().parseFromString(resp, "application/xml")
-    console.log(Data.data)
+    //console.log(Data.data)
     Data = `${Data.data}`
     let resp = new DOMParser().parseFromString(Data, "application/xml")
     return resp
@@ -80,7 +85,7 @@ const GetData = async(addr, city, sta) => {
     //let Data = await axios.get(`http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=X1-ZWz1hgyxiq6fbf_6ed93&address=${addr}&citystatezip=${city}%2C+${sta}&rentzestimate=true`)
     //let resp = `${Data.msg}`
     //return Data.msg
-    console.log(Data.data)
+    //console.log(Data.data)
     Data = `${Data.data}`
     let resp = new DOMParser().parseFromString(Data, "application/xml")
     return resp
@@ -262,6 +267,7 @@ const HouseInfo = (zpid, index) => {
         return HouseData;
       })
   );
+  */
 };
   //HouseInfo('2082540322',2);
   

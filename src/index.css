@@ -849,7 +849,13 @@ input[type="text"] {
 .MapInfo div ul:nth-child(2) {
   padding-left: 0.4rem;
 }
-.gm-style-iw > button {display: none !important;}
+.gm-style-iw > button {
+  right: -1px !important;
+}
+.gm-style-iw > button > img {
+  width: 17px !important;
+  height: 17px !important;
+}
 .gm-style .gm-style-iw-c {
   width: 245px;
 }
@@ -874,6 +880,8 @@ input[type="text"] {
   align-items: center;
   justify-content: center;
   position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .FindHome-Hero *{
   z-index: 2;
@@ -1165,6 +1173,9 @@ input[type="text"] {
   }
   .NavBar div li a {
     line-height: 1rem;
+  }
+  .DashBoardIcons li:nth-of-type(2) {
+    margin: 0px 12px;
   }
 }
 @media only screen and (max-width: 1100px) {

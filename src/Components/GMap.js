@@ -11,20 +11,19 @@ const APIKey = "AIzaSyDcXNX_SoIFTdYVs0QPk8e9ST6e9YwwN2c";
 function Map() {
     const {houses, dispatch} = useContext(HouseContext)
     const [selectedHouse, setSelectedHouse] = useState(null);
+    const [HouseNum, setHouseNum] = useState(0);
 
     const MoreInfo = (e) => {
-        dispatch({type:'HOUSE_INFO', dash: false, Item: selectedHouse.id})
+        dispatch({type:'HOUSE_INFO', dash: false, Item: HouseNum})
     }
     return (
         <GoogleMap 
             defaultZoom={15}
             defaultCenter={{lat: 40.834536, lng: -74.102201}}
             defaultOptions={{styles:MapStyles}}
-            onDragStart={() => setSelectedHouse(null)}
-            onMouseOver={() => setSelectedHouse(null)}
-            //center ={{ lat: houses.Homes.length > 1 ? houses.Homes[1].latitude : 0, lng: houses.Homes.length > 1 ? houses.Homes[1].longitude : 0 }}
+            center ={{ lat: houses.Homes.length > 1 ? houses.Homes[1].latitude : 0, lng: houses.Homes.length > 1 ? houses.Homes[1].longitude : 0 }}
         >
-        {houses.Homes.map((home) => (
+        {houses.Homes.map((home, index) => (
         <Marker
           key={home.zpid}
           position={{
@@ -34,6 +33,7 @@ function Map() {
           
           onMouseOver={() => {
             setSelectedHouse(home);
+            setHouseNum(index)
           }}
           icon={{
             url: MarkerIcon,
@@ -46,23 +46,19 @@ function Map() {
           onCloseClick={() => {
             setSelectedHouse(null);
           }}
-
           position={{
             lat: selectedHouse.latitude,
             lng: selectedHouse.longitude
           }}
         >
         <div
-          onMouseLeave={() => {
-            setSelectedHouse(null);
-          }}
             onClick = {(e) => MoreInfo(e)}
             className = "MapInfo">
 
             <img src={selectedHouse.images[0]} alt={""}/>
             <div>
                 <h1>{selectedHouse.street}</h1>
-                <h1>${selectedHouse.rent}</h1>
+                <h1>${selectedHouse.zestimate ? selectedHouse.zestimate : selectedHouse.rentzestimate}</h1>
                 <ul>
                     <li><FaBed style ={Iconsbed}/> {selectedHouse.bedrooms}</li>
                     <li><FaToilet style ={Iconsto}/> {selectedHouse.bathrooms}</li>

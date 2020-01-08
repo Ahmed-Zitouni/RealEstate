@@ -46,7 +46,7 @@ const SearchBars = () => {
         e.preventDefault();
         dispatch({type:'LOADING', loading: true})
         if (1 === 1) {//address.length > 0 && city.length > 0 && StatesUS.has(sta.toUpperCase) {
-
+            
         GetHouseInfo({addr: address.trim(), city: city.trim(), sta: sta.trim()})
             .then(data => { 
                 console.log("Final Stuff", data)

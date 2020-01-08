@@ -8,26 +8,26 @@ import { HouseContext } from '../context/HouseContext';
 
 const HouseListing = ({ x, elem }) => {
     const {houses,dispatch} = useContext(HouseContext)
-    let house = houses.Homes[elem];
+    let houseData = houses.Homes[elem]
     const MoreInfo = () => {
         dispatch({type:'HOUSE_INFO', dash: false, Item: elem})
     }
     return ( 
         <div onClick = {() => MoreInfo()} className = "DashBoardItems">
                 <div className = "DashBoardImg">
-                    <img src = {house.images[0]} name={elem} alt ={house.images[0].street}/>
-                    <li>${house.amount ? house.amount : house.rent}</li>
+                    <img src = {houseData.images[0]} name={elem} alt = {houseData.street}/>
+                    <li>${houseData.zestimate ? houseData.zestimate : houseData.rentzestimate}</li>
                     <div/>
                 </div>
                 <div className = "DashBoardMainData">
-                    <li> {house.street}</li>
-                    <li>{house.city}, {house.state}</li>
+                    <li> {houseData.street}</li>
+                    <li>{houseData.city}, {houseData.state}</li>
                 </div>
             <div style = {underline}/>
             <div className = "DashBoardIcons">
-                <li style={{paddingLeft: 0}}><FaBed style = {Icons}/> {house.bedrooms}</li>
-                <li><FaToilet style = {Icons}/> {house.bathrooms}</li>
-                {house.finishedSqFt ?<li><FaExternalLinkSquareAlt style = {Icons}/>{house.finishedSqFt} ft<sup>2</sup></li> : null}
+                <li style={{paddingLeft: 0}}><FaBed style = {Icons}/> {houseData.bedrooms}</li>
+                <li><FaToilet style = {Icons}/> {houseData.bathrooms}</li>
+                {houseData.finishedSqFt ?<li><FaExternalLinkSquareAlt style = {Icons}/>{houseData.finishedSqFt} ft<sup>2</sup></li> : null}
             </div>
         </div>
      );

@@ -17,6 +17,7 @@ const HouseInfo = (props) => {
     }
     useEffect(() => {
         setImageNum(0)
+        console.log(num)
     }, [num])
     return (
     <div className="HouseInfo-Wrap">
@@ -44,7 +45,7 @@ const HouseInfo = (props) => {
             ))}
             </Gallery>
             <li style={{gridArea: 'mt'}}>{Home.street}, <span>{Home.state}</span></li>
-            <li style={{gridArea: 'pt'}}>${Home.amount !== "" ? Home.amount : Home.rent}</li>
+            <li style={{gridArea: 'pt'}}>${Home.zestimate !== "" ? Home.zestimate : Home.rentzestimate}</li>
             <li style={{gridArea: 'st'}}>{Home.city}</li>
             <ul style={{gridArea: 'd1'}}>
                 <li>Bedrooms</li>
