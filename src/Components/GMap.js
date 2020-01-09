@@ -18,7 +18,7 @@ function Map() {
     }
     return (
         <GoogleMap 
-            defaultZoom={15}
+            defaultZoom={14}
             defaultCenter={{lat: 40.834536, lng: -74.102201}}
             defaultOptions={{styles:MapStyles}}
             center ={{ lat: houses.Homes.length > 1 ? houses.Homes[1].latitude : 0, lng: houses.Homes.length > 1 ? houses.Homes[1].longitude : 0 }}

@@ -1,4 +1,5 @@
 import React from 'react'
+import ScrollAnimation from "react-animate-on-scroll";
 
 const ActionSteps = (props) => {
     const ActionSteps = props.data.data.ActionStep;

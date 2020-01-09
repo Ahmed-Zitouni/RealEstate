@@ -7,6 +7,7 @@
     "dom-parser": "^0.1.6",
     "gh-pages": "^2.1.1",
     "react": "^16.11.0",
+    "react-animate-on-scroll": "^2.1.5",
     "react-dom": "^16.11.0",
     "react-gesture-gallery": "^1.1.0",
     "react-gesture-responder": "^2.1.0",
