@@ -1,7 +1,7 @@
 ## Real Estate Site 
 
 #### A complete web application built in React that uses Zillow API to displays information and the estimated value of searched home.  Google maps was used to display the location of each home, and an AWS server was used to set up an Express REST API.  
-
+ 
 
 [![img](https://portimgaz.s3.amazonaws.com/Resite.png)](https://searchrealestate.netlify.com/)
 
