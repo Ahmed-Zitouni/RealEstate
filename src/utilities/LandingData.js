@@ -1,7 +1,7 @@
 
 const FindHome = {
     Images : [
-        "https://d3rs829cgcd3zf.cloudfront.net/REL1.jpg",
+        "https://portimgaz.s3.amazonaws.com/REL1.jpg",
         "https://i.pinimg.com/originals/11/98/ba/1198ba64e09fdef3a305fd0640aa2b48.jpg",
         "https://www.mashvisor.com/blog/wp-content/uploads/2018/09/bigstock-Buying-Or-Renting-House-The-S-251156368.jpg",
         "https://www.quickenloans.com/blog/wp-content/uploads/2018/08/CoupleLookingAtHouse.jpg",
@@ -39,7 +39,7 @@ const FindHome = {
 }
 const SellProperty = {
     Images : [
-        "https://d3rs829cgcd3zf.cloudfront.net/REL2.jpg",
+        "https://portimgaz.s3.amazonaws.com/REL2.jpg",
         "https://ds1.cityrealty.com/img/0f938b6525d4734d74d8a24aad2b9cbf67d8f6d4+w+h+0+60/988-fifth-avenue-00.jpg",
         "http://hamilton-realestate.com/wp-content/uploads/2018/02/For_Sale_Sold-7482e01-1170x0-c-center.jpg",
         "https://wini.com/media/1761/home-sellers-should-not-be-present-for-a-showing-while-buyers-should-make-sure-to-keep-their-emotions-neutral-_1137_40118984_0_14089409_500.jpg?preset=articleFeature",
@@ -77,7 +77,7 @@ const SellProperty = {
 }
 const ManageRentals = { 
     Images : [
-        "https://d3rs829cgcd3zf.cloudfront.net/REL3.jpg",
+        "https://portimgaz.s3.amazonaws.com/REL3.jpg",
         "https://www.rentcafe.com/blog/wp-content/uploads/2015/09/TX-17500-Austin.jpg",
         "https://wp-tid.zillowstatic.com/18/shutterstock_215924530-8ecc8f-637153-1024x683.jpg",
         "https://st3.depositphotos.com/3258807/16672/i/1600/depositphotos_166727054-stock-photo-cheerful-bearded-man-looking-through.jpg",
