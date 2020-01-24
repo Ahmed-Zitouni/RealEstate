@@ -25,7 +25,7 @@ function Map() {
         >
         {houses.Homes.map((home, index) => (
         <Marker
-          key={home.zpid}
+          key={index}
           position={{
             lat: home.latitude,
             lng: home.longitude
