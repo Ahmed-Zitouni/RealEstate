@@ -2,6 +2,7 @@ import React from 'react'
 import Logo from '../Logo/Logo.png'
 import { NavLink, Link } from 'react-router-dom'
 
+const HoverLI = {borderBottomColor:"#0acc3c"}
 const NavBar = (props) => {
         return (
             
@@ -16,28 +17,19 @@ const NavBar = (props) => {
                            <NavLink  to="/Find-A-Home"
                             activeStyle={{
                             color: '#0acc3c',
-                            fontWeight: '600',
-                          }}>
-                                <span>Buy</span>
-                           </NavLink > 
+                          }}>Buy</NavLink > 
                         </li>
                         <li>
                             <NavLink to="/Sell-A-Property"
                             activeStyle={{
                                 color: '#0acc3c',
-                                fontWeight: '600',
-                              }}>
-                                <span>Sell</span>
-                           </NavLink > 
+                              }}>Sell</NavLink > 
                         </li>
                         <li>
                             <NavLink to="/Manage-Rentals"
                             activeStyle={{
-                                color: '#0acc3c',
-                                fontWeight: '600',
-                              }}>
-                                <span>Rentals</span>
-                           </NavLink > 
+                              color: '#0acc3c',
+                              }}>Rent</NavLink > 
                         </li>
                         <div className="NavBar_Right_Div">
                         </div>

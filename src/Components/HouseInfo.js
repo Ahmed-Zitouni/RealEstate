@@ -71,7 +71,7 @@ const HouseInfo = (props) => {
                 <li>Parking</li>
                 <li>{Home.parkingType}</li>
             </ul>
-            <li id ="desc" style={DescMain}>Description: </li>
+            <li id ="desc">Description: </li>
             <li style={DescText}>{Home.desc}</li>
         </div>
     </div>

@@ -1,7 +1,7 @@
 
 const FindHome = {
     Images : [
-        "https://portimgaz.s3.amazonaws.com/REL1.jpg",
+        "https://d3rs829cgcd3zf.cloudfront.net/REL1.jpg",
         "https://i.pinimg.com/originals/11/98/ba/1198ba64e09fdef3a305fd0640aa2b48.jpg",
         "https://www.mashvisor.com/blog/wp-content/uploads/2018/09/bigstock-Buying-Or-Renting-House-The-S-251156368.jpg",
         "https://www.quickenloans.com/blog/wp-content/uploads/2018/08/CoupleLookingAtHouse.jpg",
@@ -39,7 +39,7 @@ const FindHome = {
 }
 const SellProperty = {
     Images : [
-        "https://portimgaz.s3.amazonaws.com/REL2.jpg",
+        "https://d3rs829cgcd3zf.cloudfront.net/REL2.jpg",
         "https://ds1.cityrealty.com/img/0f938b6525d4734d74d8a24aad2b9cbf67d8f6d4+w+h+0+60/988-fifth-avenue-00.jpg",
         "http://hamilton-realestate.com/wp-content/uploads/2018/02/For_Sale_Sold-7482e01-1170x0-c-center.jpg",
         "https://wini.com/media/1761/home-sellers-should-not-be-present-for-a-showing-while-buyers-should-make-sure-to-keep-their-emotions-neutral-_1137_40118984_0_14089409_500.jpg?preset=articleFeature",
@@ -77,7 +77,7 @@ const SellProperty = {
 }
 const ManageRentals = { 
     Images : [
-        "https://portimgaz.s3.amazonaws.com/REL3.jpg",
+        "https://d3rs829cgcd3zf.cloudfront.net/REL3.jpg",
         "https://www.rentcafe.com/blog/wp-content/uploads/2015/09/TX-17500-Austin.jpg",
         "https://wp-tid.zillowstatic.com/18/shutterstock_215924530-8ecc8f-637153-1024x683.jpg",
         "https://st3.depositphotos.com/3258807/16672/i/1600/depositphotos_166727054-stock-photo-cheerful-bearded-man-looking-through.jpg",
@@ -95,11 +95,11 @@ const ManageRentals = {
         "You could use a website like Zillow to estimate your home’s value. But it might be best to find a home appraiser who can give you a more accurate assessment of what it’s actually worth."
     ],
     ActionStep: [
-        "Preparing Your Rental Property",
+        "Preparing Your Rental",
         "In order to remain competitive, you’ll need to make your rental unit appealing to tenants. This should include fixing any known problems.",
-        "Manage applications and screen tenants",
+        "Manage tenants",
         "Before you hand over the keys to your house, it’s a good idea to be sure that your prospective tenants have solid financials and can afford to keep up with their rent.",
-        "Pre-Move-In Checklist",
+        "Move-In Checklist",
         "Communicat with the tenant to arrange a move-in date and inspection. Before moving day, you have to get a Lease Agreement in place."
     ],
     Benefits: [
@@ -107,9 +107,9 @@ const ManageRentals = {
         "Avoid these landlord pitfalls",
         "Understand your local market",
         "Make sure your rental is in a desirable area so you can attract more potential tenants. Just because the price is right doesn’t mean that the location is, get to know the neighborhood.",
-        "(Not) Completing accurate leasing paperwork",
+        "(Not) Completing leasing paperwork",
         "You can find many generic leases online, but you’ll want to review the lease requirements specific to your state or municipality and incorporate them into your rental agreement.",
-        "(Not) Conducting a thorough tenant screening",
+        "(Not) Thoroughly screening tenant",
         "It's important in filling your vacancy, but you still want to choose a highly qualified renter. Create a documented process and criteria for finding, screening and securing your tenants.",
     ]
 }

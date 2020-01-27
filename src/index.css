@@ -84,9 +84,10 @@ table {
 .NavBar > div {
   text-align: left;
   height: 100%;
-  margin: 0% 3.5%;
+  margin-left: 3rem;
   display: flex;
   align-items: center;
+  color: #2F3D44;
 }
 .NavBar > div > li:nth-of-type(1) {
   margin-left: 0px;
@@ -102,14 +103,23 @@ table {
   height: 100%;
 }
 .NavBar > div > li {
-  display: inline-block;
-  margin-left: 19px;
   text-align: center;
   margin-left: 2%;
   display: flex;
   height: 100%;
   align-items: center;
   width: 3.6rem;
+  box-sizing: border-box;
+  border-bottom: 5px solid transparent;
+  justify-content: center;
+}
+.NavBar > div > li:hover {
+  border-bottom-color:#0acc3c;
+  color:#0acc3c;
+}
+.NavBar > div > li:nth-of-type(1):hover {
+  border-bottom-color:transparent;
+  color:#0acc3c;
 }
 .NavBar >div > li:nth-child(1) a {
   padding-left: 0;
@@ -118,7 +128,7 @@ table {
 }
 .NavBar >div > li:nth-child(1) > a > img{
   object-fit: contain;
-  margin-bottom: 4%;
+  margin-bottom: 4px;
   width: 85%;
 }
 .NavBar div li a {
@@ -126,11 +136,11 @@ table {
   height: 100%;
   display: flex;
   align-items: center;
-  padding-left: 14px;
-  padding-right: 14px;
   cursor: pointer;
   text-decoration: none;
-  color: #2F3D44;
+  margin-top: 5px;
+  color: inherit;
+  box-sizing: border-box;
 }
 .NavBar_Div {
   text-align:left;
@@ -188,6 +198,38 @@ input[type="text"] {
   font-size: 94%;
   width: 100%;
 }
+#S1 {
+  min-width: 60px;
+  position: relative;
+}
+#S2 {
+  width: 50%;
+  margin-left: 1rem;
+  min-width: 60px;
+}
+#S3 {
+  width: 6%;
+  margin-left: 1rem;
+  min-width: 60px;
+}
+#S4 {
+  width: 8%;
+  min-height: 32px;
+  text-align: center;
+  margin-left: 1rem;
+  background-color: #0acc3c;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  min-width: 70px;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  box-shadow: -2px 2px 4px 0 rgba(0,0,0,.4);
+}
+#S4:hover {
+  background-color: #11a938;
+}
 .SearchBars {
   grid-area: s;
   z-index: 2;
@@ -204,7 +246,7 @@ input[type="text"] {
   align-items: center;
   min-height: auto;
   margin: 0% 3.5%;
-  width: 100%;
+  width: 96%;
   height: 100%;
 }
 .SearchBars form {
@@ -217,49 +259,22 @@ input[type="text"] {
   height: 55%;
   color: #2F3D44
 }
-.SearchBars form li, .SearchBars > form >input {
+.SearchBars form div {
+  display: flex;
+  width: 23rem;
+}
+.SearchBars form li, .SearchBars > form input {
+  min-height: 32px;
   color: #444;
   display: inline-block;
   width: 100%;
-  padding: 0px 16px;
+  padding-left: 16px;
   background: #fff;
   border: 1px solid #f1fbf4;
   border-radius: 3px;
   align-items: center;
   display: flex;
   height: 100%;
-}
-.SearchBars form li:nth-child(1) {
-  width: 20%;
-  min-width: 120px;
-  position: relative;
-}
-.SearchBars form li:nth-child(2) {
-  width: 11%;
-  margin-left: 2%;
-  min-width: 70px;
-}
-.SearchBars form li:nth-child(3) {
-  width: 6%;
-  margin-left: 2%;
-  min-width: 60px;
-}
-.SearchBars form > input {
-  width: 8%;
-  text-align: center;
-  margin-left: 2%;
-  background-color: #0acc3c;
-  color: white;
-  cursor: pointer;
-  border-radius: 3px;
-  min-width: 70px;
-  font-weight: 600;
-  font-size: 15px;
-  letter-spacing: 0.3px;
-  box-shadow: -2px 2px 4px 0 rgba(0,0,0,.4);
-}
-.SearchBars form > input:hover {
-  background-color: #11a938;
 }
 #Loader {
   grid-template-columns: unset;
@@ -508,7 +523,7 @@ input[type="text"] {
 	animation: fadein 0.4s linear;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 120px 120px 40px 40px 20px 50px 50px 180px;
-  grid-template-areas: 
+  grid-template-areas:
     "s1 s1 s1 b b b b b b b b b"
     "s2 s2 s2 b b b b b b b b b "
     "mt mt mt mt mt mt mt mt pt pt pt pt"
@@ -516,7 +531,7 @@ input[type="text"] {
     "ln ln ln ln ln ln ln ln ln ln ln ln"
     "d1 d1 d1 d1 d2 d2 d2 d2 d3 d3 d3 d3"
     "d4 d4 d4 d4 d5 d5 d5 d5 d6 d6 d6 d6"
-    "dt dt dt ds ds ds ds ds ds ds ds ds"
+    "dt dt dt . ds ds ds ds ds ds ds ds";
 }
 .HouseInfo::-webkit-scrollbar-track
 {
@@ -628,26 +643,34 @@ input[type="text"] {
   border-radius: 2%;
 }
 .HouseInfo > li:nth-child(4) {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #2F3D44;
   align-self: flex-end;
 }
 .HouseInfo > li:nth-child(4) span {
-  font-size: 1.4rem;
   font-weight: 700;
   color: #7e8989;
 }
 .HouseInfo > li:nth-child(5) {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #00B074;
   align-self: flex-end;
 }
 .HouseInfo > li:nth-child(6) {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #7e8989;
   align-self: flex-start;
+}
+#desc {
+  grid-area: dt;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2F3D44;
+  align-items: flex-start;
+  padding-top: 8px;
+  display: flex;
 }
 .HouseInfo > ul {
   display: flex;
@@ -1149,7 +1172,6 @@ input[type="text"] {
 }
 .Benefits-Wrapper > div > div > div > div {
   width: 100%;
-  height: 100%;
 }
 .Benefits-Wrapper > div > div > div > div > h1{
   
@@ -1188,7 +1210,7 @@ input[type="text"] {
     font-size: 0.9rem;
   }
   #desc {
-    font-size: 0.9rem !important;
+    font-size: 0.9rem;
   }
   .HouseInfo {
     grid-template-rows: 90px 90px 40px 40px 20px 50px 50px 180px;
@@ -1455,4 +1477,221 @@ input[type="text"] {
   font-size: 0.6rem;
   line-height: 1rem;
 }
+}
+@media only screen and (max-width: 475px) {
+  .HouseInfo-small {
+    display: none;
+  }
+  .HouseInfo-small-o {
+    display: none;
+  }
+  .HouseInfo {
+    grid-template-areas:
+        "b b b b b b b b b b b b"
+        "b b b b b b b b b b b b "
+        "mt mt mt mt mt mt mt mt pt pt pt pt"
+        "st st st st . . . . . . . ."
+        "ln ln ln ln ln ln ln ln ln ln ln ln"
+        "d1 d1 d1 d1 d2 d2 d2 d2 d3 d3 d3 d3"
+        "d4 d4 d4 d4 d5 d5 d5 d5 d6 d6 d6 d6"
+        "dt dt dt . ds ds ds ds ds ds ds ds";
+  }
+  .GestureGallery {
+    width: 95% !important;
+    margin-left: 0 !important;
+  }
+  .FindHome-Hero-Text > div> h1 {
+    width: 100%;
+  }
+  .FindHome-Hero-Text {
+    flex-direction: column;
+  }
+  .FindHome-Hero-Text > div {
+    width: 100%;
+    height: unset;
+    margin-bottom: 0;
+  }
+  .Benefits-Wrapper {
+    height: unset;
+    padding-bottom: 50px;
+    margin-top: 60px;
+  }
+  .Benefits-Wrapper > div > div {
+    height: unset;
+  }
+  .Benefits-Wrapper > div > div > div > div {
+    margin-top: 40px;
+  }
+  .Benefits-Wrapper > div > div > div {
+    height: unset;
+  }
+  .Benefits-Wrapper > div > div > div > div:nth-of-type(1) {
+    display: none !important;
+  }
+  .ActionSteps-Wrapper {
+    height: unset;
+    margin-top: 0;
+  }
+  .ActionSteps-Wrapper > div > div > p {
+    padding-left: 0;
+  }
+  .ActionSteps-Wrapper > div > div h1 {
+    padding-left: 0;
+  }
+  .ActionSteps-Wrapper > div > div:nth-of-type(2) {
+    width: 100%;
+  }
+  .ActionSteps-Wrapper > div > div:nth-of-type(1) {
+    width: 100%;
+  }
+  .ActionSteps-Wrapper > div {
+    flex-direction: column;
+  }
+  .MainText-Wrapper {
+    height: unset;
+  }
+  .MainText-Wrapper > div:nth-of-type(2) {
+    height: unset;
+  }
+  .MainText-Wrapper > div:nth-of-type(2) > div > img {
+    width: 100%;
+  }
+  .MainText-Wrapper > div:nth-of-type(2) > div:nth-of-type(1) h2 {
+    width: 100%;
+    padding-top: 30px;
+  }
+  .MainText-Wrapper > div:nth-of-type(2) > div:nth-of-type(1) p {
+    width: 100%;
+  }
+  .MainText-Wrapper > div:nth-of-type(2) > div {
+    width: 100%;
+  }
+  .MainText-Wrapper > div:nth-of-type(1) > h1 {
+    width: 100%;
+    font-size: 1.7rem;
+  }
+  .MainText-Wrapper > div:nth-of-type(1) {
+    height: unset;
+    margin-bottom: 2rem;
+  }
+  #desc {
+    font-size: 0.6rem;
+  }
+  #BackBtn {
+    font-size: 0.6rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+    height: 2rem;
+    width: 3.5rem;
+    border-radius: 0.1rem;
+    border: 2px solid #f4f2f4;
+  }
+  #BackBtn > svg {
+    margin-right: 5px;
+    font-size: 0.8rem;
+  }
+  .HouseInfo > ul li > svg {
+    width: 15px !important;
+    height: 15px !important;
+  }
+  .HouseInfo > ul li:nth-child(2) {
+    font-size: 0.6rem;
+  }
+  .HouseInfo > ul {
+    font-size: 0.65rem;
+  }
+  .HouseInfo > li:nth-child(4) {
+    font-size: 0.7rem;
+  }
+  .HouseInfo > li:nth-child(5) {
+    font-size: 0.7rem;
+  }
+  .HouseInfo > li:nth-child(6) {
+    font-size: 0.6rem;
+  }
+  .HouseInfo {
+    padding-top: 0;
+    grid-template-rows: 75px 75px 40px 40px 0px 50px 50px 180px;
+  }
+  .SearchBars form div {
+    flex-direction: column;
+  }
+  .SearchBars > div {
+    margin: 0;
+    margin-left: 3.5%;
+    width: 96%;
+  }
+  .DashBoard {
+    padding-top: 0px;
+    overflow-x: hidden;
+  }
+  .DashBoard > div {
+    grid-template-columns: 1fr;
+  }
+  #S1 {
+    height: 20px;
+  }
+  #S1 >svg {
+    width: 0.65rem !important;
+    height: 0.65rem !important;
+    top: 20% !important;
+  }
+  #S2 {
+    margin-top: 5px;
+    margin-left: 0;
+    width: 80%;
+    height: 20px;
+  }
+  .SearchBars form li {
+    min-height: unset;
+    font-size: 0.65rem;
+  }
+  #S3 {
+    margin-left: 2rem;
+    height: 20px;
+  }
+  #S4 {
+    margin-top: 5px;
+    margin-left: 2.15rem;
+    min-height: 14px;
+    font-size: 0.55rem;
+    height: 20px;
+  }
+  .MainWrapper {
+    grid-template-rows: 75px 50px auto;
+  }
+  .SearchBars form {
+    height: 40px;
+  }
+  .DashBoard h1 {
+    display: none;
+  }
+  .NavBar > div {
+    margin-left: 1rem;
+  }
+  .NavBar > div > li:nth-of-type(1) {
+    width: 27%;
+    min-width: 0px;
+  }
+  .NavBar >div > li:nth-child(1) > a > img {
+    margin-bottom: 0px;
+  }
+  .NavBar > div > li {
+    width: 12%;
+  }
+  .NavBar div li a {
+    font-size: 0.75rem;
+  }
+  .HouseInfo-small-o > div > div {
+    width: 1rem;
+    height: 1rem;
+  }
+  .HouseInfo-small-o > div > div > svg {
+    width: 1rem !important;
+    height: 1rem !important;
+  }
+  .HouseInfo-small-o > div > span {
+    font-size: 0.7rem;
+    padding-left: 8%;
+  }
 }
