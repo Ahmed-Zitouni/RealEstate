@@ -196,7 +196,7 @@ const HouseContextProvider = props => {
         zestimate: "1,348,300",
         index: 5,
         images: [
-          "https://photos.zillowstatic.com/p_d/IS12rvtze63hrxf.jpg",
+          "https://photos.zillowstatic.com/p_d/IS1ni4mgb2w91w1000000000.jpg",
           "https://photos.zillowstatic.com/p_d/ISyrvq6tg0p3e20000000000.jpg",
           "https://photos.zillowstatic.com/p_d/ISqlteomcsg6e20000000000.jpg",
           "https://photos.zillowstatic.com/p_d/IS12rvtza819nz7.jpg",
